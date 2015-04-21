@@ -1,0 +1,64 @@
+\documentclass[10pt]{article} 
+\PassOptionsToPackage{hyphens}{url}
+\usepackage {xcolor}
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  linkbordercolor=blue
+}
+\usepackage{simpleConference}
+\usepackage{times}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{amssymb}
+\begin{document}
+
+\title{My EHR Paper title}
+
+\author{Kristina Hager\\
+Software Metrics and Measurement EE382V\\
+University of Texas at Austin\\
+April 30, 2015\\
+}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+	This is an abstract
+\end{abstract}
+
+% \tableofcontents
+
+\section{Introduction}
+
+\subsection{What is an EHR?}
+\label{sec:What is an EHR}
+Describe an EHR here \cite{auditingprivacy}
+
+
+\subsection{Nonfunctional Requirements of an EHR}
+\label{sec:Nonfunctional Requirements of an EHR}
+I will outline NFR of EHR here.
+
+\section{Related Work}
+\label{sec:Related}
+etc
+
+\section{Conclusions and Future Work}
+
+\subsection{Conclusions-Subsection}
+\label{sec:Conclusions-Subsection}
+
+Conclusions go here. 
+
+\subsection{Future Work}
+\label{sec:Future Work}
+Thoughts on future work go here.
+
+\bibliographystyle{abbrv}
+\bibliography{refs}
+\end{document}
