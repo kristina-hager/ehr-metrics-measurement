@@ -40,25 +40,32 @@
 
 Electronic health record (EHR) systems collect health information about individual patients 
 and enable exchange of a patient's information between healthcare providers.
-These systems and the general computerization of healthcare carry a promise to today's healthcare consumers
-of revolutionizing the quality, ease and cost of care.
-They also present a great opportunity for software organizations to benefit society in meaningful ways
-and also to generate a profit.
+These systems and the overall computerization of healthcare promise to revolutionize the quality, ease and cost of care for consumers and providers alike.
+These systems also present a great opportunity for software organizations to deliver EHR systems that will benefit society in meaningful ways and also generate a profit.
 
-An EHR system must deliver the required, and legislated, functionality to enable improvements in delivery of care.
-Since in the United States a specific EHR solution is not mandated, providers of EHR systems must compete in the marketplace
-in order to win contracts with medical providers.
-Althogh recent legislation in the United States has provided financial incentives to providers to ease the cost of adopting EHR,
-the incentives are not enough to cover the full cost.
-Medical providers, like everyone, are thus sensitive to the cost, effort, and maintanance required by an EHR system.
-Therefore, a cloud-based EHR service is very alluring to providers due to reduced infrastructure costs typically required by cloud solutions \cite{auditingprivacy}.
-% TODO -- strengthen argument here regarding legislation that mandates the functionality
-% and that this paper won't focus on functionality since this is mandated
-% but rather on the non-functional requirements that give a product it's edge
-% also define the term non-functional requirements
+% Specific legislation in the United States has paved the way and, in essence, mandated that providers adopt EHR systems.
+% PHI definition: https://www.hipaa.com/hipaa-protected-health-information-what-does-phi-include/
+
+The Health Insurance Portability and Accountability Act (HIPAA) of 1996 laid essential groundwork for EHR systems by defining and regulating the exchange of Protected Health Information (PHI) and by establishing certain national standards.
+PHI can be found in myriad places and is essentially any information that can positively identify a person and/or connect them to any health care related information.
+HIPAA provides protection for PHI and specifies severe criminal and civil penalties for violation of these protections.
+Therefore, any EHR system must provide for protection of PHI in compliance with this legislation.
+HIPAA also established standards regarding the processing of claims, benefits, pharmacy transactions, and code sets for medical procedures and diagnoses. 
+\cite{ehrbook}
+
+The Health Information Technology for Economic and Clinical Health (HITECH) Act of 2009 provided signficant financial incentives for the adoption and \textit{Meaningful Use} (MU) of EHR systems \cite{ehrbook}.
+Furthermore, the HITECH Act empowers the Office of the National Health Information Technology Coordinator (ONC) to define requirements for and certify EHR systems \cite{onc-ehr}.
+HIPAA also defines how providers can effectively use (as defined in Meaningful Use) these systems to improve quality and efficiency of care and to achieve incentives \cite{ehrbook}.
+
+%An EHR system must be certified by the ONC as having the required functionality in order for the adopting provider to be eligible for incentives.
+Medical providers can choose among these certified EHR systems available in the open market and select the system that they feel meets their needs and offers the most attractive return on investment.
+Therefore, providers of EHR systems must compete in the marketplace in order to win contracts with medical providers.
+Since all EHR systems must achieve the regulated set of functionality to be eligible, vendors must necessarily concentrate on differentiating their systems with regards to non-functional requirements and price.
+A cloud-based EHR service is very alluring to providers due to reduced infrastructure costs typically required by cloud solutions \cite{auditingprivacy}.
 
 In this paper, I will discuss cloud-based Software-as-a-Service (SaaS) Electronic Health Record (EHR) systems (EHR-SaaS) for the perspective
-of the software community development community and a medical practice administrator in charge of selecting such a system.
+of the software community development community. 
+This paper may also be of use to a medical provider administrator in charge of selecting such a system.
 
 My goal is to familiarize the reader with the goals of the EHR-SaaS product and the qualities important in an EHR-SaaS product
 she may be developing or considering for purchase.
@@ -79,11 +86,11 @@ In section TODO, I will cover la-tee-daTODO.
 An EHR is most easily explained as a digital version of a patient's paper chart.
 However, an EHR exhbits features well beyond that of an ordinary paper chart.
 It will contain real time information from multiple providers from different organizations and be able to be securely and instantaneously shared between authorized users.
-Specifically, an EHR will contain a patient's medical history, previous and current diagnoses, medications, treatment plans, immunization dates, radiology images, laboratory results, and test results.
+Specifically, an EHR will contain a patient's medical history, previous and current diagnoses, medications, treatment plans, immunization dates, radiology images, laboratory results, and test results from many, and ideally all, providers.
 
 An EHR system contains these digital patient histories and enables further sophisticated functions.
 For example, an EHR system gives providers access to evidence-based tools to use when making decisions about patient care.
-The system also automates and streamlines the provider's workflow, i.e. referrals and patient records can be automatically transferred between cooperating providers.
+The system also automates and streamlines the provider's workflow. For example, referrals and patient records can be automatically transferred between cooperating providers.
 \cite{healthit-ehr}
 
 Sinclair, et. al. state in \cite{auditingprivacy}, that "An EHR is a modern specialization of a CRM (customer relationship management) which specifically focuses on the collection and exchange of electronic health information about individual patients between healthcare organizations".
