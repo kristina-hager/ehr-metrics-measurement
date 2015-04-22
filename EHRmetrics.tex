@@ -14,6 +14,8 @@
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 \usepackage{amssymb}
+\usepackage{enumitem}
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent}
 \begin{document}
 
 \title{My EHR Paper title}
@@ -50,6 +52,10 @@ Althogh recent legislation in the United States has provided financial incentive
 the incentives are not enough to cover the full cost.
 Medical providers, like everyone, are thus sensitive to the cost, effort, and maintanance required by an EHR system.
 Therefore, a cloud-based EHR service is very alluring to providers due to reduced infrastructure costs typically required by cloud solutions \cite{auditingprivacy}.
+% TODO -- strengthen argument here regarding legislation that mandates the functionality
+% and that this paper won't focus on functionality since this is mandated
+% but rather on the non-functional requirements that give a product it's edge
+% 
 
 In this paper, I will discuss cloud-based Software-as-a-Service (SaaS) Electronic Health Record (EHR) systems (EHR-SaaS) for the perspective
 of the software community development community and a medical practice administrator in charge of selecting such a system.
@@ -85,7 +91,22 @@ Sinclair, et. al. state in \cite{auditingprivacy}, that "An EHR is a modern spec
 
 \subsection{Goals of an EHR}
 \label{sec:Goals of an EHR}
-I will outline NFR of EHR here.
+
+The goals of an EHR are oriented around improving the care the patient receives, assuring security and privacy, and enabling further work in evidence-based medicine and in public health objectives: 
+\begin{description}
+\item[Continuity of Care] - The provision of a comprehensive record of care for the lifetime of every patient and thus a higher level of ongoing healthcare quality
+\item[Access and Security] - A means of properly controlling and providing access; standardization and organization
+\item[Reduction of Medical Errors] - Reduces errors by eliminating handwritten orders which can be misinterpreted; enable drug-drug interaction validation and cross-referencing of drug allergies and the patient's vital statistics
+\item[Increased Patient Access and Awareness] - Patient access portals enable a patient to be aware of and connected to their medical record, their treatments and results
+\item[Evidence-Based Medicine] - Collection of patient medical data, treatments and results into connected databases enabled unprecedented research over long period of time
+\item[Public Health Reporting] - The collection of patient data as above supports and improves efficiency in public health efforts in areas like tracking and researching communicable illnesses and chronic conditions
+\end{description}
+% TODO - indent this table
+
+These goals are outlined in many reputable resources. I have drawn my information from \cite{ehrbook}.
+
+\subsection{Non-Functional Requirements of an EHR}
+\label{sec:NFR of an EHR}
 
 \section{Related Work}
 \label{sec:Related}
