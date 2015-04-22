@@ -18,25 +18,25 @@
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
 \begin{document}
 
-\title{My EHR Paper title}
+%\title{My EHR Paper title}
 
-\author{Kristina Hager\\
-Software Metrics and Measurement EE382V\\
-University of Texas at Austin\\
-April 30, 2015\\
-}
+%\author{Kristina Hager\\
+%Software Metrics and Measurement EE382V\\
+%University of Texas at Austin\\
+%April 30, 2015\\
+%}
 
-\maketitle
-\thispagestyle{empty}
+%\maketitle
+%\thispagestyle{empty}
 
-\begin{abstract}
-	This is an abstract!
-\end{abstract}
+%\begin{abstract}
+%	This is an abstract!
+%\end{abstract}
 
 % \tableofcontents
 
 \section{Introduction}
-\label{Introduction}
+\label{sec:Introduction}
 
 Electronic health record (EHR) systems collect health information about individual patients 
 and enable exchange of a patient's information between healthcare providers.
@@ -55,7 +55,7 @@ Therefore, a cloud-based EHR service is very alluring to providers due to reduce
 % TODO -- strengthen argument here regarding legislation that mandates the functionality
 % and that this paper won't focus on functionality since this is mandated
 % but rather on the non-functional requirements that give a product it's edge
-% 
+% also define the term non-functional requirements
 
 In this paper, I will discuss cloud-based Software-as-a-Service (SaaS) Electronic Health Record (EHR) systems (EHR-SaaS) for the perspective
 of the software community development community and a medical practice administrator in charge of selecting such a system.
@@ -107,6 +107,17 @@ These goals are outlined in many reputable resources. I have drawn my informatio
 
 \subsection{Non-Functional Requirements of an EHR}
 \label{sec:NFR of an EHR}
+
+As mentioned in section \ref{sec:What is an EHR}, an EHR system product must differentiate itself primarily in the area of non-functionality requirements.
+In my research, the non-functional requirements that are mentioned repeatedly are:
+\begin{description}
+	\item[Portability] (of the individual EHR) - ability to accurately and securely transfer the EHR of a patient from once provider to another \cite{ehrbook}
+	\item[Security and Privacy] - the data contained in each message is readable only by intended and authorized recipient \cite{ehrbook}, \cite{auditingprivacy}
+	\item[Interoperability] - connectivity between different provider organizations and EHR systems \cite{ehrbook}
+	\item[Reliability] - orders and records remain in appropriate state and order even in the face of planned or unplanned system downtime  \cite{ehrbook}
+\end{description}
+
+% TODO - what about usability here?
 
 \section{Related Work}
 \label{sec:Related}
