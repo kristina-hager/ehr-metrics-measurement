@@ -67,12 +67,11 @@ In this paper, I will discuss cloud-based Software-as-a-Service (SaaS) Electroni
 of the software community development community. 
 This paper may also be of use to a medical provider administrator in charge of selecting such a system.
 
-My goal is to familiarize the reader with the goals of the EHR-SaaS product and the qualities important in an EHR-SaaS product
-she may be developing or considering for purchase.
+My goal is to familiarize the reader with the high level goals of the EHR-SaaS product and the non-functional qualities important in an EHR-SaaS product she may be developing or considering for purchase.
 From these qualities, I will suggest a path down the Goals-Question-Metrics (GQM) methodology that can produce metrics relevant for an EHR-SaaS product.
 TODO: doing this is TBD. may also get into web metrics.
 
-In section \ref{sec:What is an EHR}, I will present an overview of the definition and goals of an EHR.
+In section \ref{sec:Intro_EHR}, I will present an overview of the definition and goals of an EHR.
 
 In section TODO, I will present an overview of non-functional requirements that are critical to a SaaS product.
 
@@ -80,8 +79,8 @@ In section TODO, I will present the non-functional requirements I suspect are im
 
 In section TODO, I will cover la-tee-daTODO.
 
-\section{What is an EHR?}
-\label{sec:What is an EHR}
+\section{Introducing the EHR System}
+\label{sec:Intro_EHR}
 
 An EHR is most easily explained as a digital version of a patient's paper chart.
 However, an EHR exhbits features well beyond that of an ordinary paper chart.
@@ -96,7 +95,7 @@ The system also automates and streamlines the provider's workflow. For example, 
 Sinclair, et. al. state in \cite{auditingprivacy}, that "An EHR is a modern specialization of a CRM (customer relationship management) which specifically focuses on the collection and exchange of electronic health information about individual patients between healthcare organizations".
 
 
-\subsection{Goals of an EHR}
+\subsection{Goals of an EHR System}
 \label{sec:Goals of an EHR}
 
 The goals of an EHR are oriented around improving the care the patient receives, assuring security and privacy, and enabling further work in evidence-based medicine and in public health objectives: 
@@ -112,11 +111,11 @@ The goals of an EHR are oriented around improving the care the patient receives,
 
 These goals are outlined in many reputable resources. I have drawn my information from \cite{ehrbook}.
 
-\subsection{Non-Functional Requirements of an EHR}
+\subsection{Non-Functional Requirements of an EHR System}
 \label{sec:NFR of an EHR}
 
-As mentioned in section \ref{sec:What is an EHR}, an EHR system product must differentiate itself primarily in the area of non-functionality requirements.
-In my research, the non-functional requirements that are mentioned repeatedly are:
+As mentioned in section \ref{sec:Intro_EHR}, an EHR system product must differentiate itself primarily in the area of non-functionality requirements.
+In my research, the non-functional requirements that are mentioned repeatedly when EHR systems are described for the medical community are:
 \begin{description}
 	\item[Portability] (of the individual EHR) - ability to accurately and securely transfer the EHR of a patient from once provider to another \cite{ehrbook}
 	\item[Security and Privacy] - the data contained in each message is readable only by intended and authorized recipient \cite{ehrbook}, \cite{auditingprivacy}
@@ -124,7 +123,113 @@ In my research, the non-functional requirements that are mentioned repeatedly ar
 	\item[Reliability] - orders and records remain in appropriate state and order even in the face of planned or unplanned system downtime  \cite{ehrbook}
 \end{description}
 
-% TODO - what about usability here?
+% TODO - what about usability here? - not really mentioned in books, but I can cover this later
+% also -- consider length of committment to EHR ehr-breakup if appropriate later
+
+\section{Introducing Software as a Service (Saas)}
+\label{sec:Intro_SaaS}
+
+As mentioned in section \ref{sec:Introduction} a cloud-based delivery model for EHR systems is likely to be appealing for medical providers since these systems typically require much less up front investment and should offload maintenance and overhead to the vendor of the system.
+The cloud-based delivery of software is typically referred to as Software as a Service (SaaS).
+
+\subsection{Advantages of SaaS for EHR}
+\label{sec:SaaS Adantages}
+
+\begin{description}
+\item[Cost]
+SaaS products are usually accessed by users via an internet client directed to a specific website.
+In this model, the users typically pay a regular licensing or subscription fee and do not have to make any up front purchase or hardware investments other than to acquire client machines (desktops, laptops, and mobile devices) which are pretty standard to acquire anyway.
+\item[Reliability]
+Practices can negotiate contracts with vendors with specific uptime guarantees \cite{wiki-saas}, problem resolution and customer service response.
+My estimate is that a vendor should be able to provide much more rigorous guarantees for these concerns than a typical in-house IT staff.
+
+\item[Maintenance and upgrades]
+Software customers often dread (with good reason) the moments when they are required to update the software they have been using.
+Since a SaaS product is usually hosted by the vendor and delivered to the clients via a web browser, then vendor then takes on the cost and responsibility of rolling out software updates.
+Most SaaS providers will deliver these updates to users automatically and much more frequently than is typical of a traditional software product.
+Frequent updates offer many advantages to the end user including more rapid delivery of new features and more incremental changes which reduce the likelihood of major outages or breakages and reduce the scope of changes that may confuse the user.
+
+\item[Security]
+Since the vendor is hosting the data, data security is an area of concern that is typically listed as a disadvantage of SaaS \cite{wiki-saas}.
+However, in the case of EHR systems, I would argue that the software vendor is in a better position to ensure data security as they should have greater expertise in IT security than a typical medical provider office.
+Furthermore, the fines enacted by HIPAA against negligence around and misuse of PHI motivate anyone dealing with this type of information to take appropriate precautions.
+
+\end{description}
+
+\subsection{Challanges of SaaS for EHR}
+\label{sec:SaaS Challenges}
+
+\begin{description}
+\item[Customization]
+The very thing that drives the cost-efficiency of a SaaS product, i.e. multi-tenancy, normally limits the ability of the product to be customized for a specific customer.
+This concern is particularly strong when it comes to the procedures a medical office typically follows.
+There is a saying "When you have seen one medical practice, you have seen one medical practice" (TODO - get quote) \cite{health-hack}.
+Although medical practices in the same general area such as cardiology may be able to converge to a more or less similar workflow,
+the process will be extremely difficult and involve retraining nearly every member of the provider's staff, including the doctors. 
+Furthermore, it is nearly impossible to expect practices from disparate areas such as pediatrics vs oncology to use software that more than barely resembles each other.
+
+\item[Access and transferability of data]
+With SaaS-EHR systems, individual patient data and other patient and practice specific data will be hosted on the vendors servers.
+If the medical provider ever wishes to change EHR systems, her office will need to be able to transfer records from one vendor to the other.
+The provider should take care to address exit strategies and concerns with any vendor offering an EHR system \cite{ehr-breakup}.
+Even with the most well though out contract and plans, the transition from one EHR system to another will be a significant cost to the practice.
+
+\item[Stability]
+SaaS providers update their versions frequently and typically require users to use the latest version of the software.
+While this is often a good thing, some users may be frustrated by changes in product they have become used to \cite{wiki-saas}.
+In EHR, this is a much greater concern since these changes may result in errors made by the users (the medical provider's staff) that impact patient safety in a negative way.
+
+\end{description}
+
+Overall, an EHR system delivered as a service should be very attractive to medical providers whose main mission is to provide high quality medical care and not to become IT and Health IT organizations.
+However, adopting practices should seriously consider the above challenges.
+
+\section{Differentiating an EHR-SaaS Product}
+\label{sec:Critical-EhrSaaS-Ilities}
+
+As I mentioned in section \ref{sec:Introduction}, the functional requirements (what the system must do) for an EHR-SaaS product are largely mandated by the certification requirements set by the ONC.
+Therefore, the area where an EHR-SaaS product can differentiate itself are in the non-functional requirements (how the system must be) or the "qualities" of the system \cite{wiki-nfr}.
+Examples of non-functional requirements are usability, security, privacy, reliability, and so on.
+These are sometimes even referred to as "ilities".
+No software product can focus on each and every possible quality and achieve satisfactory time to market and a competitive price point.
+Therefore, developers of a software product must focus on the qualities that customers consider most important and make the best possible compromise when important qualities are contradictory.
+
+Over the past couple of decades, researchers have engaged in extensive study on what qualities customers consider important for traditional (non-SaaS) software products.
+However, the research on qualities important for traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
+Benlian, et. al. engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
+Luckily, the SaaS products they studied were of the (business to business) B2B variety in which EHR systems belong, albeit as a distinct and unique sub-category. 
+I consider the study and paper by Benlian, et. al in \cite{saasqual} to be excellent and rigorous, and I will summarize the findings of this paper in section \ref{sec:Critical-SaaS-Ilities}.
+However, I was not able to find any papers studying with such rigor the qualities important specifically to EHR SaaS systems.
+I will offer my observations and conjectures in section \ref{sec:Critical-EHR-Ilities} and would propose similar rigorous study take place on this promising market.
+
+\subsection{Critical Non-Functional Requirements of a SaaS Product}
+\label{sec:Critical-SaaS-Ilities}
+
+Bernial, et. al. conducted a thorough three stage research experiment to determine which qualities decision makers considered important when deciding whether or not to continue with a particular SaaS product.
+
+They determined the below factors as having primary importance in this order:
+\begin{description}
+	\item[Responsiveness]
+	Consists of all aspects of an SaaS provider’s ability to ensure that the availability and performance of the SaaS-delivered application (e.g., through professional disaster recovery planning or load balancing) as well as the responsiveness of support staff (e.g., 24-7 hotline support availability) is guaranteed.
+	\item[Security]
+	Includes all aspects to ensure that regular (preventive) measures (e.g., regular security audits, usage of encryption, or antivirus technology) are taken to avoid unintentional data breaches or corruptions (e.g., through loss, theft, or intrusions).
+	\item[Flexibility]
+	Covers the degrees of freedom customers have to change contractual (e.g., cancellation period, payment model) or functional/technical (e.g., scalability, interoperability, or modularity of the application) aspects in the relationship with an SaaS vendor.
+	\item[Rapport]
+	Includes all aspects of an SaaS provider’s ability to provide knowledgeable, caring, and courteous support (e.g., joint problem solving or aligned working styles) as well as individualized attention (e.g., support tailored to individual needs).
+	\item[Reliability]
+	Comprises all features of an SaaS vendor’s ability to perform the promised services timely, dependably, and accurately (e.g., providing services at the promised time, provision of error-free services).
+	\item[Features]
+	Refers to the degree the key functionalities (e.g., data extraction, reporting, or configuration features) and design features (e.g., user interface) of an SaaS application meet the business requirements of a customer.
+\end{description}
+(All definitions above are quoted directly from \cite{saasqual}).
+
+
+\subsection{Conjectures on Critical Non-Functional Requirements of a SaaS Product}
+\label{sec:Critical-EHR-Ilities}
+
+todo
+
 
 \section{Related Work}
 \label{sec:Related}
