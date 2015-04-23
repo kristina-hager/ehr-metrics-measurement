@@ -188,26 +188,20 @@ However, adopting practices should seriously consider the above challenges.
 \label{sec:Critical-EhrSaaS-Ilities}
 
 As I mentioned in section \ref{sec:Introduction}, the functional requirements (what the system must do) for an EHR-SaaS product are largely mandated by the certification requirements set by the ONC.
-Therefore, the area where an EHR-SaaS product can differentiate itself are in the non-functional requirements (how the system must be) or the "qualities" of the system \cite{wiki-nfr}.
+Therefore, the area where a certified EHR-SaaS product can differentiate itself are in the non-functional requirements (how the system must be) or the "qualities" of the system \cite{wiki-nfr}.
 Examples of non-functional requirements are usability, security, privacy, reliability, and so on.
 These are sometimes even referred to as "ilities".
 No software product can focus on each and every possible quality and achieve satisfactory time to market and a competitive price point.
 Therefore, developers of a software product must focus on the qualities that customers consider most important and make the best possible compromise when important qualities are contradictory.
 
-Over the past couple of decades, researchers have engaged in extensive study on what qualities customers consider important for traditional (non-SaaS) software products.
-However, the research on qualities important for traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
-Benlian, et. al. engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
-Luckily, the SaaS products they studied were of the (business to business) B2B variety in which EHR systems belong, albeit as a distinct and unique sub-category. 
-I consider the study and paper by Benlian, et. al in \cite{saasqual} to be excellent and rigorous, and I will summarize the findings of this paper in section \ref{sec:Critical-SaaS-Ilities}.
-However, I was not able to find any papers studying with such rigor the qualities important specifically to EHR SaaS systems.
-I will offer my observations and conjectures in section \ref{sec:Critical-EHR-Ilities} and would propose similar rigorous study take place on this promising market.
 
 \subsection{Critical Non-Functional Requirements of a SaaS Product}
 \label{sec:Critical-SaaS-Ilities}
 
-Bernial, et. al. conducted a thorough three stage research experiment to determine which qualities decision makers considered important when deciding whether or not to continue with a particular SaaS product.
-
-They determined the below factors as having primary importance in this order:
+Over the past couple of decades, researchers have engaged in extensive study on what qualities customers consider important for traditional (non-SaaS) software products.
+However, the research on traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
+Benlian, et. al. engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
+They determined the below factors as having primary importance in this order with Responsiveness and Security as clear leaders:
 \begin{description}
 	\item[Responsiveness]
 	Consists of all aspects of an SaaS provider’s ability to ensure that the availability and performance of the SaaS-delivered application (e.g., through professional disaster recovery planning or load balancing) as well as the responsiveness of support staff (e.g., 24-7 hotline support availability) is guaranteed.
@@ -224,12 +218,77 @@ They determined the below factors as having primary importance in this order:
 \end{description}
 (All definitions above are quoted directly from \cite{saasqual}).
 
+Luckily, the SaaS products studied were of the (business to business) B2B variety in which EHR systems belong, albeit as a distinct and unique sub-category. 
+I consider the study and paper by Benlian, et. al in \cite{saasqual} to be excellent and rigorous.
+This paper provides both an exemplary model for doing similar research regarding EHR-SaaS products and a great starting point for discussion of which qualities should be prioritized for an EHR-SaaS product.
 
-\subsection{Conjectures on Critical Non-Functional Requirements of a SaaS Product}
+ % TODO - benlian also go into 'zones of tolerance' which imply/use a scale which might be useful when/if I get into actual measurements in this paper
+
+\subsection{Conjectures on Critical Non-Functional Requirements of an EHR-SaaS Product}
 \label{sec:Critical-EHR-Ilities}
 
-todo
+Unfortunately, I was not able to find papers studying the criticality of non-functional requirements for EHR-SaaS systems with the same rigor as \cite{saasqual}.
+However, from the research by Benlian, et. al. in \cite{saasqual}, I can start outlining thoughts about what might be unique about an EHR-SaaS product versus a generic SaaS product.
+% err, offer a critique
 
+First, in \cite{saasqual}, the authors are primarily concerned with the continuance of the usage of a SaaS product and not on how quality factors influence the decision to adopt a SaaS product.
+I suppose that they focus on continuance rather than adoption because, as they state it, customers can switch SaaS providers easily \cite{saasqual}. 
+I am not convinced that it is that easy for a customer to switch between SaaS providers even in certain fairly mundane cases.
+However, in the case of EHR, a medical practice will definitely find it very expensive and time consuming to switch EHR providers due, at minimum, to the sheer amount of data that must be ported and to the amount of time and expense required to train the medical staff.
+Therefore, in further studies on EHR-SaaS, I would recommend analysis of both qualities important to win a new customers and qualities important to retain (happily) existing customers.
+For the sake of this discussion, it is important to acknowledge that the focus of the authors of \cite{saasqual} is too much on customer retention and not enough on customer acquisition for the EHR-SaaS purpose due to their assumption about the ease of switching vendors.
+
+
+In \cite{saasqual}, the authors assert that the primary reasons customers discontinue a SaaS product are: unfulfilled technical requirements, security issues and bad customer support.
+Given that security around EHR data is strongly mandated by HIPAA which enforces strong civil and criminal penalties, I suppose that nearly all EHR-SaaS solutions should have very good security and privacy controls.
+Therefore, security is unlikely to be a top reason to switch EHR systems as an EHR system with security shortcomings would have bigger problems than merely losing a customer or two.
+Similarly, the technical requirements of an EHR system are to a large extent mandated by the ONC.
+Therefore, it is highly likely that most EHR systems will have the technical functionality required.
+However, bad customer support is likely to remain a good reason to switch EHR-SaaS vendors which is reinforced by Brad Benson in \cite{switch-ehr}.
+Therefore, I would reduce in importance "Security" and "Features" for the purpose of retaining or acquiring EHR-SaaS customers but I would retain "Rapport" and "Responsiveness" as very important for an EHR-SaaS system.
+Please note that I do not mean "Security" or "Features" is unimportant; 
+I simply propose that they are less important non-functional requirements for the purpose of differentiating an EHR-SaaS product than other non-functional requirements.
+
+Benson's article also mentions "EHR design not suited for the practice speciality or specialties" as a top reason to switch vendors.
+As I mentioned in \ref{sec:SaaS Challenges}, the workflow in each medical practice is essentially unique.
+Even if a vendor can convince all of its cardiology practices to adopt workflows similar enough to use the same software product, the vendor will in all likelihood need to provide customizations between specialities at the very least.
+Therefore, I would include "Customization" or "Customizability" as a critical quality for EHR-SaaS products.
+
+In section \ref{sec:NFR of an EHR}, I discussed the non-functional requirements for an EHR system (regardless of implementation type) that I encountered in the literature.
+In this section, to summarize, portability, interoperability, security and privacy, and reliability were listed.
+As mentioned previously, security and privacy are mandated by HIPAA, so I will not include them in a list of differentiating features.
+I will, however, retain reliability as a key quality feature from the work by Bernial.
+A given practice will need to cooperate with countless other medical practices in the course of caring for patients.
+Given the freedom of choice of EHR providers, these other practices will often and most likely have different implementations of an EHR system.
+Therefore, I will add interoperability as a key differentiating feature, and include portability under that heading.
+
+In section \ref{sec:SaaS Challenges}, I mentioned one challenge of SaaS adoption for EHR and for other systems is stability.
+Namely, the SaaS delivery model puts the vendor in control of when and how new versions of software is rolled out.
+Most SaaS vendors roll out relatively smaller updates frequently to customers, and customers have no choice but to use the latest version.
+Often, users barely notice that their software has been updated and proceed happily along.
+However, often, changes to the way a frequently used software product is disturbing to users.
+For example, a reader familiar with Facebook may have noticed how angry some users have become when Facebook rolls out updates to how the News Feed works.
+In the case of EHR-SaaS, a vendor must take particular care with rolling out updates to users particularly those that meaningfully change how things work.
+Users will need retraining and to relearn a system if things change too much.
+In the worst case, users could end up making a mistake regarding patient data and encounters;
+such a mistake could very well lead to patient safety issues.
+Therefore, I would list stability as being a very critical quality factor for EHR-SaaS systems.
+
+Finally, I would retain flexibility as an important quality factor for EHR-SaaS systems as practices may wish to vary how they pay for a system or even which parts of a larger EHR system they choose to use.
+For example, a pharmacy will wish to participate in EHR, but it should only need to receive prescriptions from practices and not typically manage patient encounters or send orders.
+
+Here is my unprioritized list of quality factors I conjecture are most critical for an EHR-SaaS system.
+\begin{itemize}
+	\item Rapport (affirmed) 
+	\item Responsiveness (affirmed)
+	\item Customization (added)
+	\item Reliability (affirmed)
+	\item Stability (added)
+	\item Flexibility (affirmed)
+	\item Interoperability (added)
+\end{itemize}
+
+I would encourage a similar study as rigorous as Bernial, et. al.'s take place on important quality factors for the adoption and continuance of SaaS in order to validate this list, introduce or remove factors, and prioritize the importance of quality factors.
 
 \section{Related Work}
 \label{sec:Related}
