@@ -38,78 +38,78 @@
 \section{Introduction}
 \label{sec:Introduction}
 
-Electronic health record (EHR) systems collect health information about individual patients 
+Electronic health record (EHR) systems are computerized systems that collect health information about individual patients 
 and enable exchange of a patient's information between healthcare providers.
-These systems and the overall computerization of healthcare promise to revolutionize the quality, ease and cost of care for consumers and providers alike.
-These systems also present a great opportunity for software organizations to deliver EHR systems that will benefit society in meaningful ways and also generate a profit.
+EHR and the overall computerization of healthcare promises to revolutionize the quality, ease and cost of care for consumers, payors and providers of healthcare alike.
+These systems also present a not only a great new market opportunity for software organizations and also a way software organizations can benefit society in meaningful ways.
 
 % Specific legislation in the United States has paved the way and, in essence, mandated that providers adopt EHR systems.
 % PHI definition: https://www.hipaa.com/hipaa-protected-health-information-what-does-phi-include/
 
-The Health Insurance Portability and Accountability Act (HIPAA) of 1996 laid essential groundwork for EHR systems by defining and regulating the exchange of Protected Health Information (PHI) and by establishing certain national standards.
-PHI can be found in myriad places and is essentially any information that can positively identify a person and/or connect them to any health care related information.
-HIPAA provides protection for PHI and specifies severe criminal and civil penalties for violation of these protections.
-Therefore, any EHR system must provide for protection of PHI in compliance with this legislation.
+The Health Insurance Portability and Accountability Act (HIPAA) of 1996 laid essential groundwork for EHR systems by defining and regulating the exchange of Protected Health Information (PHI) and by establishing certain national standards for healthcare data and exchange.
+PHI can be found in myriad places. 
+It is essentially any information that can positively identify a person and/or connect them to any health care related information.
+HIPAA provides protection for PHI and specifies severe criminal and civil penalties for mishandling of this data.
+%Therefore, any EHR system must provide for protection of PHI in compliance with this legislation.
 HIPAA also established standards regarding the processing of claims, benefits, pharmacy transactions, and code sets for medical procedures and diagnoses. 
 \cite{ehrbook}
 
-The Health Information Technology for Economic and Clinical Health (HITECH) Act of 2009 provided signficant financial incentives for the adoption and \textit{Meaningful Use} (MU) of EHR systems \cite{ehrbook}.
+The Health Information Technology for Economic and Clinical Health (HITECH) Act of 2009 provides signficant financial incentives for the adoption and \textit{Meaningful Use} (MU) of EHR systems \cite{ehrbook}.
 Furthermore, the HITECH Act empowers the Office of the National Health Information Technology Coordinator (ONC) to define requirements for and certify EHR systems \cite{onc-ehr}.
-HIPAA also defines how providers can effectively use (as defined in Meaningful Use) these systems to improve quality and efficiency of care and to achieve incentives \cite{ehrbook}.
+HITECH also clearly specifies how providers can effectively use (as defined in Meaningful Use) these systems to improve quality and efficiency of care and to earn monetary incentives \cite{ehrbook}.
 
 %An EHR system must be certified by the ONC as having the required functionality in order for the adopting provider to be eligible for incentives.
-Medical providers can choose among these certified EHR systems available in the open market and select the system that they feel meets their needs and offers the most attractive return on investment.
-Therefore, providers of EHR systems must compete in the marketplace in order to win contracts with medical providers.
-Since all EHR systems must achieve the regulated set of functionality to be eligible, vendors must necessarily concentrate on differentiating their systems with regards to non-functional requirements and price.
+Medical providers can choose among certified EHR systems and select the system that they feel meets their needs and offers the most attractive return on investment.
+Therefore, providers of EHR systems must compete with other vendors in the marketplace in order to win contracts with medical providers.
+Since all EHR systems must achieve the regulated set of functionality to be eligible, vendors must necessarily concentrate on differentiating their systems with regards to non-functional requirements (quality factors) and price.
 A cloud-based EHR service is very alluring to providers due to reduced infrastructure costs typically required by cloud solutions \cite{auditingprivacy}.
+I will cover in this paper the quality factors that are likely to be important to purchasers of a cloud-based EHR system.
 
-In this paper, I will discuss cloud-based Software-as-a-Service (SaaS) Electronic Health Record (EHR) systems (EHR-SaaS) for the perspective
-of the software community development community. 
-This paper may also be of use to a medical provider administrator in charge of selecting such a system.
+This paper is written primarily for a reader from the software industry with an interest in EHR, and it may also be of use to a medical provider administrator in charge of selecting such a system.
 
-My goal is to familiarize the reader with the high level goals of the EHR-SaaS product and the non-functional qualities important in an EHR-SaaS product she may be developing or considering for purchase.
-From these qualities, I will suggest a path down the Goals-Question-Metrics (GQM) methodology that can produce metrics relevant for an EHR-SaaS product.
-TODO: doing this is TBD. may also get into web metrics.
+In section \ref{sec:Intro_EHR}, I will introduce the EHR system and present a high level overview of the goals and non-functional requirements of such a system.
 
-In section \ref{sec:Intro_EHR}, I will present an overview of the definition and goals of an EHR.
+In section \ref{sec:Intro_SaaS}, I will introduce the concept of Software-as-a-Service (SaaS) and describe the advantages and challenges of a SaaS solution for the EHR product.
 
-In section TODO, I will present an overview of non-functional requirements that are critical to a SaaS product.
-
-In section TODO, I will present the non-functional requirements I suspect are important for an EHR-SaaS product.
-
-In section TODO, I will cover la-tee-daTODO.
+In section \ref{sec:Critical-EhrSaaS-Ilities}, I will discuss how the providers of an EHR-SaaS system can differentiate their product in the marketplace. 
+I will first cover existing research by Bernial, et. al. \cite{saasqual} on the critical non-functional requirements of a generic business to business SaaS product.
+With Bernial, et. al.'s work as a solid foundation, I will offer a critique of their conclusions from the perspective of an EHR-SaaS system and a modified list of quality factors I conjecture to be critical for this unique product.
 
 \section{Introducing the EHR System}
 \label{sec:Intro_EHR}
 
-An EHR is most easily explained as a digital version of a patient's paper chart.
-However, an EHR exhbits features well beyond that of an ordinary paper chart.
-It will contain real time information from multiple providers from different organizations and be able to be securely and instantaneously shared between authorized users.
-Specifically, an EHR will contain a patient's medical history, previous and current diagnoses, medications, treatment plans, immunization dates, radiology images, laboratory results, and test results from many, and ideally all, providers.
+An EHR is most concisely explained as a digital version of a patient's paper chart.
+However, an individual EHR and an EHR system exhbits features well beyond that of an ordinary paper chart or set of paper charts.
+An EHR will contain real time information from multiple providers from different organizations and can be securely and instantaneously shared between authorized users.
+Specifically, an EHR will contain a patient's entire medical history, previous and current diagnoses, medications, treatment plans, immunization dates, radiology images, laboratory results, and test results from many, and ideally all, providers.
 
-An EHR system contains these digital patient histories and enables further sophisticated functions.
+An EHR system contains these digital patient charts and enables further sophisticated functions.
 For example, an EHR system gives providers access to evidence-based tools to use when making decisions about patient care.
 The system also automates and streamlines the provider's workflow. For example, referrals and patient records can be automatically transferred between cooperating providers.
 \cite{healthit-ehr}
 
-Sinclair, et. al. state in \cite{auditingprivacy}, that "An EHR is a modern specialization of a CRM (customer relationship management) which specifically focuses on the collection and exchange of electronic health information about individual patients between healthcare organizations".
+Sinclair, et. al. place EHR systems in the context of other software systems with their observation: "An EHR is a modern specialization of a CRM (customer relationship management) which specifically focuses on the collection and exchange of electronic health information about individual patients between healthcare organizations" \cite{auditingprivacy}.
 
 
 \subsection{Goals of an EHR System}
 \label{sec:Goals of an EHR}
 
-The goals of an EHR are oriented around improving the care the patient receives, assuring security and privacy, and enabling further work in evidence-based medicine and in public health objectives: 
-\begin{description}
-\item[Continuity of Care] - The provision of a comprehensive record of care for the lifetime of every patient and thus a higher level of ongoing healthcare quality
-\item[Access and Security] - A means of properly controlling and providing access; standardization and organization
-\item[Reduction of Medical Errors] - Reduces errors by eliminating handwritten orders which can be misinterpreted; enable drug-drug interaction validation and cross-referencing of drug allergies and the patient's vital statistics
-\item[Increased Patient Access and Awareness] - Patient access portals enable a patient to be aware of and connected to their medical record, their treatments and results
-\item[Evidence-Based Medicine] - Collection of patient medical data, treatments and results into connected databases enabled unprecedented research over long period of time
-\item[Public Health Reporting] - The collection of patient data as above supports and improves efficiency in public health efforts in areas like tracking and researching communicable illnesses and chronic conditions
-\end{description}
-% TODO - indent this table
+As mentioned in section \ref{sec:Introduction} the legislators of the United States have enacted, over the last couple of decades, large and wide reaching acts that effectively mandate the adoption of EHR systems by nearly all medical practices.
+A discussion of why an act of congress was required to encourage the medical industry to computerize, when most other industries computerized long ago, is extremely interesting but outside the scope of this paper.
+However, suffice it to say, the legislators enacted these rules with the goals of improving the quality and efficiency of care for all users of the healthcare system and not merely for the benefit of software companies.
+%These acts also enabled regulatory bodies to specify very clearly what an EHR system is, what standards it must obey, and how a practice must use these systems to achieve improvements in care.
 
-These goals are outlined in many reputable resources. I have drawn my information from \cite{ehrbook}.
+The specific goals of an EHR are oriented around improving the care the patient receives, assuring security and privacy, and enabling further work in evidence-based medicine and in public health objectives.
+These goals are outlined in many reputable sources.
+I have drawn this summary from \cite{ehrbook} and the goals are as follows:
+\begin{description}
+	\item[Continuity of Care] The provision of a comprehensive record of care for the lifetime of every patient and thus a higher level of ongoing healthcare quality
+	\item[Access and Security] Properly controlling and providing access to patient records; standardization and organization
+	\item[Reduction of Medical Errors] Reduce errors by eliminating handwritten orders which can be misinterpreted; enable drug-drug interaction validation and cross-referencing of drug allergies and the patient's vital statistics
+	\item[Increased Patient Access and Awareness] Patient access portals enable a patient to be aware of and connected to their medical record, their treatments and results
+	\item[Evidence-Based Medicine] Collection of patient medical data, treatments and results into connected databases enabled unprecedented research over long period of time
+	\item[Public Health Reporting] The collection of patient data as above supports and improves efficiency in public health efforts in areas like tracking and researching communicable illnesses and chronic conditions
+\end{description}
 
 \subsection{Non-Functional Requirements of an EHR System}
 \label{sec:NFR of an EHR}
@@ -131,6 +131,7 @@ In my research, the non-functional requirements that are mentioned repeatedly wh
 
 As mentioned in section \ref{sec:Introduction} a cloud-based delivery model for EHR systems is likely to be appealing for medical providers since these systems typically require much less up front investment and should offload maintenance and overhead to the vendor of the system.
 The cloud-based delivery of software is typically referred to as Software as a Service (SaaS).
+% TODO -- provide a better intro of what SaaS is here.
 
 \subsection{Advantages of SaaS for EHR}
 \label{sec:SaaS Adantages}
@@ -201,7 +202,7 @@ Therefore, developers of a software product must focus on the qualities that cus
 Over the past couple of decades, researchers have engaged in extensive study on what qualities customers consider important for traditional (non-SaaS) software products.
 However, the research on traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
 Benlian, et. al. engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
-They determined the below factors as having primary importance in this order with Responsiveness and Security as clear leaders:
+They determined the below factors as having primary importance in this order with responsiveness and security as clear leaders:
 \begin{description}
 	\item[Responsiveness]
 	Consists of all aspects of an SaaS provider’s ability to ensure that the availability and performance of the SaaS-delivered application (e.g., through professional disaster recovery planning or load balancing) as well as the responsiveness of support staff (e.g., 24-7 hotline support availability) is guaranteed.
