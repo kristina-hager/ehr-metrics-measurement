@@ -40,7 +40,7 @@
 
 Electronic health record (EHR) systems are computerized systems that collect health information about individual patients 
 and enable exchange of a patient's information between healthcare providers.
-EHR and the overall computerization of healthcare promises to revolutionize the quality, ease and cost of care for consumers, payors and providers of healthcare alike.
+EHR and the overall computerization of healthcare promises to revolutionize the quality, ease and cost of care for consumers, payers and providers of healthcare alike.
 These systems also present a not only a great new market opportunity for software organizations and also a way software organizations can benefit society in meaningful ways.
 
 % Specific legislation in the United States has paved the way and, in essence, mandated that providers adopt EHR systems.
@@ -54,7 +54,7 @@ HIPAA provides protection for PHI and specifies severe criminal and civil penalt
 HIPAA also established standards regarding the processing of claims, benefits, pharmacy transactions, and code sets for medical procedures and diagnoses. 
 \cite{ehrbook}
 
-The Health Information Technology for Economic and Clinical Health (HITECH) Act of 2009 provides signficant financial incentives for the adoption and \textit{Meaningful Use} (MU) of EHR systems \cite{ehrbook}.
+The Health Information Technology for Economic and Clinical Health (HITECH) Act of 2009 provides significant financial incentives for the adoption and \textit{Meaningful Use} (MU) of EHR systems \cite{ehrbook}.
 Furthermore, the HITECH Act empowers the Office of the National Health Information Technology Coordinator (ONC) to define requirements for and certify EHR systems \cite{onc-ehr}.
 HITECH also clearly specifies how providers can effectively use (as defined in Meaningful Use) these systems to improve quality and efficiency of care and to earn monetary incentives \cite{ehrbook}.
 
@@ -72,14 +72,14 @@ In section \ref{sec:Intro_EHR}, I will introduce the EHR system and present a hi
 In section \ref{sec:Intro_SaaS}, I will introduce the concept of Software-as-a-Service (SaaS) and describe the advantages and challenges of a SaaS solution for the EHR product.
 
 In section \ref{sec:Critical-EhrSaaS-Ilities}, I will discuss how the providers of an EHR-SaaS system can differentiate their product in the marketplace. 
-I will first cover existing research by Bernial, et. al. \cite{saasqual} on the critical non-functional requirements of a generic business to business SaaS product.
-With Bernial, et. al.'s work as a solid foundation, I will offer a critique of their conclusions from the perspective of an EHR-SaaS system and a modified list of quality factors I conjecture to be critical for this unique product.
+I will first cover existing research by Benlian, Koufaris, and Hess (2011, \cite{saasqual}) on the critical non-functional requirements of a generic business-to-business SaaS product.
+With Benlian, et al.'s work as a solid foundation, I will offer a critique of their conclusions from the perspective of an EHR-SaaS system and a modified list of quality factors I conjecture to be critical for this unique product.
 
 \section{Introducing the EHR System}
 \label{sec:Intro_EHR}
 
 An EHR is most concisely explained as a digital version of a patient's paper chart.
-However, an individual EHR and an EHR system exhbits features well beyond that of an ordinary paper chart or set of paper charts.
+However, an individual EHR and an EHR system exhibits features well beyond that of an ordinary paper chart or set of paper charts.
 An EHR will contain real time information from multiple providers from different organizations and can be securely and instantaneously shared between authorized users.
 Specifically, an EHR will contain a patient's entire medical history, previous and current diagnoses, medications, treatment plans, immunization dates, radiology images, laboratory results, and test results from many, and ideally all, providers.
 
@@ -88,19 +88,18 @@ For example, an EHR system gives providers access to evidence-based tools to use
 The system also automates and streamlines the provider's workflow. For example, referrals and patient records can be automatically transferred between cooperating providers.
 \cite{healthit-ehr}
 
-Sinclair, et. al. place EHR systems in the context of other software systems with their observation: "An EHR is a modern specialization of a CRM (customer relationship management) which specifically focuses on the collection and exchange of electronic health information about individual patients between healthcare organizations" \cite{auditingprivacy}.
+Sinclair, Hudzia, and Stewart (2014) place EHR systems in the context of other software systems with their observation: "An EHR is a modern specialization of a CRM (customer relationship management) which specifically focuses on the collection and exchange of electronic health information about individual patients between healthcare organizations" \cite{auditingprivacy}.
 
 
-\subsection{Goals of an EHR System}
+\subsection{Goals and Non-Functional Requirements of an EHR System}
 \label{sec:Goals of an EHR}
 
 As mentioned in section \ref{sec:Introduction} the legislators of the United States have enacted, over the last couple of decades, large and wide reaching acts that effectively mandate the adoption of EHR systems by nearly all medical practices.
-A discussion of why an act of congress was required to encourage the medical industry to computerize, when most other industries computerized long ago, is extremely interesting but outside the scope of this paper.
+A discussion of why an act of Congress was required to encourage the medical industry to computerize, when most other industries computerized long ago, is extremely interesting but outside the scope of this paper.
 However, suffice it to say, the legislators enacted these rules with the goals of improving the quality and efficiency of care for all users of the healthcare system and not merely for the benefit of software companies.
 %These acts also enabled regulatory bodies to specify very clearly what an EHR system is, what standards it must obey, and how a practice must use these systems to achieve improvements in care.
 
-The specific goals of an EHR are oriented around improving the care the patient receives, assuring security and privacy, and enabling further work in evidence-based medicine and in public health objectives.
-These goals are outlined in many reputable sources.
+The impetus for an EHR are oriented around improving the care the patient receives, assuring security and privacy, and enabling further work in evidence-based medicine and in public health objectives.
 I have drawn this summary from \cite{ehrbook}, and the goals of EHR are as follows:
 \begin{description}
 	\item[Continuity of Care] The provision of a comprehensive record of care for the lifetime of every patient and thus a higher level of ongoing healthcare quality
@@ -111,13 +110,15 @@ I have drawn this summary from \cite{ehrbook}, and the goals of EHR are as follo
 	\item[Public Health Reporting] The collection of patient data as above supports and improves efficiency in public health efforts in areas like tracking and researching communicable illnesses and chronic conditions
 \end{description}
 
-\subsection{Non-Functional Requirements of an EHR System}
-\label{sec:NFR of an EHR}
+%\subsection{Non-Functional Requirements of an EHR System}
+%\label{sec:NFR of an EHR}
 
 %As mentioned in section \ref{sec:Intro_EHR}, an EHR system product must differentiate itself primarily in the area of non-functionality requirements.
 %In my research, the non-functional requirements that are mentioned repeatedly when EHR systems are described for the medical community are:
 
-In order to achieve to the patient, research and public health goals of EHR, and to address previous issues in the execution of healthcare - whether via paper patient chart or whether in the early attempts at EHR systems in early adopters - the EHR system is desired to have the following non-functional attributes:
+%In order to achieve the patient, research and public health goals of EHR, and to address previous issues in the execution of healthcare - whether via paper patient chart or whether in the early attempts at EHR systems in early adopters - the EHR system is desired to have the following non-functional attributes:
+
+Sources covering the goals of EHR systems typically mentioned the following non-functional requirements alongside functional goals:
 
 \begin{description}
 	\item[Portability] (of the individual EHR) - ability to accurately and securely transfer the EHR of a patient from once provider to another \cite{ehrbook}
@@ -125,6 +126,8 @@ In order to achieve to the patient, research and public health goals of EHR, and
 	\item[Interoperability] - connectivity between different provider organizations and EHR systems \cite{ehrbook}
 	\item[Reliability] - orders and records remain in appropriate state and order even in the face of planned or unplanned system downtime  \cite{ehrbook}
 \end{description}
+
+
 
 % TODO - what about usability here? - not really mentioned in books, but I can cover this later
 % TODO -- also beef up the intro to this by reivisiting sources
@@ -136,6 +139,14 @@ In order to achieve to the patient, research and public health goals of EHR, and
 As mentioned in section \ref{sec:Introduction} a cloud-based delivery model for EHR systems is likely to be appealing for medical providers since these systems typically require much less up front investment and should offload maintenance and overhead to the vendor of the system.
 The cloud-based delivery of software is typically referred to as Software as a Service (SaaS).
 % TODO -- provide a better intro of what SaaS is here.
+
+SaaS differs from traditional software products in that it uses a multi-tenant architecture.
+In other words, customers share the same codebase and physical infrastructure in SaaS versus the traditional software model where each customer is using a distinct installation and distinct infrastructure.
+An advantage to this configuration is that customers can expect higher network bandwidth, reliability, and relatively lower cost.
+However, this model does constrain the ability to customize the software for different customers.
+Furthermore, vendors are typically in charge of when and how software upgrades are rolled out meaning customers generally have no choice but to adopt upgrades \cite{saasqual}.
+
+
 
 \subsection{Advantages of SaaS for EHR}
 \label{sec:SaaS Adantages}
@@ -152,7 +163,7 @@ My estimate is that a vendor should be able to provide much more rigorous guaran
 Software customers often dread (with good reason) the moments when they are required to update the software they have been using.
 Since a SaaS product is usually hosted by the vendor and delivered to the clients via a web browser, then vendor then takes on the cost and responsibility of rolling out software updates.
 Most SaaS providers will deliver these updates to users automatically and much more frequently than is typical of a traditional software product.
-Frequent updates offer many advantages to the end user including more rapid delivery of new features and more incremental changes which reduce the likelihood of major outages or breakages and reduce the scope of changes that may confuse the user.
+Frequent updates offer many advantages to the end user including more rapid delivery of new features and more incremental changes that reduce the likelihood of major outages or breakages and reduce the scope of changes that may confuse the user.
 
 \item[Security]
 Since the vendor is hosting the data, data security is an area of concern that is typically listed as a disadvantage of SaaS \cite{wiki-saas}.
@@ -161,20 +172,20 @@ Furthermore, the fines enacted by HIPAA against negligence around and misuse of 
 
 \end{description}
 
-\subsection{Challanges of SaaS for EHR}
+\subsection{Challenges of SaaS for EHR}
 \label{sec:SaaS Challenges}
 
 \begin{description}
 \item[Customization]
 The very thing that drives the cost-efficiency of a SaaS product, i.e. multi-tenancy, normally limits the ability of the product to be customized for a specific customer.
-This concern is particularly strong when it comes to the procedures a medical office typically follows.
-There is a saying "When you have seen one medical practice, you have seen one medical practice" (TODO - get quote) \cite{health-hack}.
-Although medical practices in the same general area such as cardiology may be able to converge to a more or less similar workflow,
-the process will be extremely difficult and involve retraining nearly every member of the provider's staff, including the doctors. 
-Furthermore, it is nearly impossible to expect practices from disparate areas such as pediatrics vs oncology to use software that more than barely resembles each other.
+This concern is particularly strong when it comes to medical practice workflows, i.e. the processes a medical office typically follows for a patient visit, for scheduling, to process referrals, and so on.
+There is a saying in the medical field: "When you have seen one medical practice, you have seen one medical practice" that strongly reinforces this concern \cite{health-hack}.
+It may be possible to convince medical practices in the same specialty to converge to a more or less similar workflow even though it will involve retraining nearly every member of the provider's staff, including the doctors. 
+However, it will be nearly impossible to expect practices from disparate specialrties such as pediatrics vs. oncology to converge to the same workflows.
+Therefore, EHR software will need to be customized at least for each specialty.
 
 \item[Access and transferability of data]
-With SaaS-EHR systems, individual patient data and other patient and practice specific data will be hosted on the vendors servers.
+With SaaS-EHR systems, individual patient data and other patient and practice specific data will be hosted on the vendor's servers.
 If the medical provider ever wishes to change EHR systems, her office will need to be able to transfer records from one vendor to the other.
 The provider should take care to address exit strategies and concerns with any vendor offering an EHR system \cite{ehr-breakup}.
 Even with the most well though out contract and plans, the transition from one EHR system to another will be a significant cost to the practice.
@@ -205,25 +216,26 @@ Therefore, developers of a software product must focus on the qualities that cus
 
 Over the past couple of decades, researchers have engaged in extensive study on what qualities customers consider important for traditional (non-SaaS) software products.
 However, the research on traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
-Benlian, et. al. engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
+Benlian, et al. engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
 They determined the below factors as having primary importance in this order with responsiveness and security as clear leaders:
 \begin{description}
 	\item[Responsiveness]
-	Consists of all aspects of an SaaS provider’s ability to ensure that the availability and performance of the SaaS-delivered application (e.g., through professional disaster recovery planning or load balancing) as well as the responsiveness of support staff (e.g., 24-7 hotline support availability) is guaranteed.
+	Consists of all aspects of a SaaS provider’s ability to ensure that the availability and performance of the SaaS-delivered application (e.g., through professional disaster recovery planning or load balancing) as well as the responsiveness of support staff (e.g., 24-7 hotline support availability) is guaranteed.
 	\item[Security]
 	Includes all aspects to ensure that regular (preventive) measures (e.g., regular security audits, usage of encryption, or antivirus technology) are taken to avoid unintentional data breaches or corruptions (e.g., through loss, theft, or intrusions).
 	\item[Flexibility]
-	Covers the degrees of freedom customers have to change contractual (e.g., cancellation period, payment model) or functional/technical (e.g., scalability, interoperability, or modularity of the application) aspects in the relationship with an SaaS vendor.
+	Covers the degrees of freedom customers have to change contractual (e.g., cancellation period, payment model) or functional/technical (e.g., scalability, interoperability, or modularity of the application) aspects in the relationship with a SaaS vendor.
 	\item[Rapport]
-	Includes all aspects of an SaaS provider’s ability to provide knowledgeable, caring, and courteous support (e.g., joint problem solving or aligned working styles) as well as individualized attention (e.g., support tailored to individual needs).
+	Includes all aspects of a SaaS provider’s ability to provide knowledgeable, caring, and courteous support (e.g., joint problem solving or aligned working styles) as well as individualized attention (e.g., support tailored to individual needs).
 	\item[Reliability]
-	Comprises all features of an SaaS vendor’s ability to perform the promised services timely, dependably, and accurately (e.g., providing services at the promised time, provision of error-free services).
+	Comprises all features of a SaaS vendor’s ability to perform the promised services timely, dependably, and accurately (e.g., providing services at the promised time, provision of error-free services).
 	\item[Features]
-	Refers to the degree the key functionalities (e.g., data extraction, reporting, or configuration features) and design features (e.g., user interface) of an SaaS application meet the business requirements of a customer.
+	Refers to the degree the key functionalities (e.g., data extraction, reporting, or configuration features) and design features (e.g., user interface) of a SaaS application meet the business requirements of a customer.
 \end{description}
 (All definitions above are quoted directly from \cite{saasqual}).
 
-Luckily, the SaaS products studied were of the (business to business) B2B variety in which EHR systems belong, albeit as a distinct and unique sub-category. 
+Fortunately, Benlian, et al.'s study was specifically on business to business (B2B) SaaS products. 
+EHR systems do belong to the B2B category although as a very unique and distinct type of B2B sotware.
 I consider the study and paper by Benlian, et. al in \cite{saasqual} to be excellent and rigorous.
 This paper provides both an exemplary model for doing similar research regarding EHR-SaaS products and a great starting point for discussion of which qualities should be prioritized for an EHR-SaaS product.
 
@@ -233,36 +245,36 @@ This paper provides both an exemplary model for doing similar research regarding
 \label{sec:Critical-EHR-Ilities}
 
 Unfortunately, I was not able to find papers studying the criticality of non-functional requirements for EHR-SaaS systems with the same rigor as \cite{saasqual}.
-However, from the research by Benlian, et. al. in \cite{saasqual}, I can start outlining thoughts about what might be unique about an EHR-SaaS product versus a generic SaaS product.
+However, from the research by Benlian, et al. in \cite{saasqual}, I can start outlining thoughts about what might be unique about an EHR-SaaS product versus a generic SaaS product.
 % err, offer a critique
 
 First, in \cite{saasqual}, the authors are primarily concerned with the continuance of the usage of a SaaS product and not on how quality factors influence the decision to adopt a SaaS product.
 I suppose that they focus on continuance rather than adoption because, as they state it, customers can switch SaaS providers easily \cite{saasqual}. 
 I am not convinced that it is that easy for a customer to switch between SaaS providers even in certain fairly mundane cases.
 However, in the case of EHR, a medical practice will definitely find it very expensive and time consuming to switch EHR providers due, at minimum, to the sheer amount of data that must be ported and to the amount of time and expense required to train the medical staff.
-Therefore, in further studies on EHR-SaaS, I would recommend analysis of both qualities important to win a new customers and qualities important to retain (happily) existing customers.
+Therefore, in further studies on EHR-SaaS, I would recommend analysis of both qualities important to win new customers and qualities important to retain (happily) existing customers.
 For the sake of this discussion, it is important to acknowledge that the focus of the authors of \cite{saasqual} is too much on customer retention and not enough on customer acquisition for the EHR-SaaS purpose due to their assumption about the ease of switching vendors.
 
 
-In \cite{saasqual}, the authors assert that the primary reasons customers discontinue a SaaS product are: unfulfilled technical requirements, security issues and bad customer support.
-Given that security around EHR data is strongly mandated by HIPAA which enforces strong civil and criminal penalties, I suppose that nearly all EHR-SaaS solutions should have very good security and privacy controls.
+In \cite{saasqual}, the authors assert that the primary reasons customers discontinue a SaaS product are unfulfilled technical requirements, security issues and bad customer support.
+Given that security around EHR data is strongly mandated by HIPAA, which enforces strong civil and criminal penalties, I suppose that nearly all EHR-SaaS solutions should have very good security and privacy controls.
 Therefore, security is unlikely to be a top reason to switch EHR systems as an EHR system with security shortcomings would have bigger problems than merely losing a customer or two.
 Similarly, the technical requirements of an EHR system are to a large extent mandated by the ONC.
 Therefore, it is highly likely that most EHR systems will have the technical functionality required.
-However, bad customer support is likely to remain a good reason to switch EHR-SaaS vendors which is reinforced by Brad Benson in \cite{switch-ehr}.
+However, bad customer support is likely to remain a good reason to switch EHR-SaaS vendors, which is reinforced by Brad Benson in \cite{switch-ehr}.
 Therefore, I would reduce in importance "Security" and "Features" for the purpose of retaining or acquiring EHR-SaaS customers but I would retain "Rapport" and "Responsiveness" as very important for an EHR-SaaS system.
 Please note that I do not mean "Security" or "Features" is unimportant; 
 I simply propose that they are less important non-functional requirements for the purpose of differentiating an EHR-SaaS product than other non-functional requirements.
 
-Benson's article also mentions "EHR design not suited for the practice speciality or specialties" as a top reason to switch vendors.
+Benson's article also mentions "EHR design not suited for the practice specialty or specialties" as a top reason to switch vendors.
 As I mentioned in \ref{sec:SaaS Challenges}, the workflow in each medical practice is essentially unique.
-Even if a vendor can convince all of its cardiology practices to adopt workflows similar enough to use the same software product, the vendor will in all likelihood need to provide customizations between specialities at the very least.
+Even if a vendor can convince all of its cardiology practices to adopt workflows similar enough to use the same software product, the vendor will in all likelihood need to provide customizations between specialties at the very least.
 Therefore, I would include "Customization" or "Customizability" as a critical quality for EHR-SaaS products.
 
 In section \ref{sec:NFR of an EHR}, I discussed the non-functional requirements for an EHR system (regardless of implementation type) that I encountered in the literature.
 In this section, to summarize, portability, interoperability, security and privacy, and reliability were listed.
 As mentioned previously, security and privacy are mandated by HIPAA, so I will not include them in a list of differentiating features.
-I will, however, retain reliability as a key quality feature from the work by Bernial.
+I will, however, retain reliability as a key quality feature from the work by Benlian.
 A given practice will need to cooperate with countless other medical practices in the course of caring for patients.
 Given the freedom of choice of EHR providers, these other practices will often and most likely have different implementations of an EHR system.
 Therefore, I will add interoperability as a key differentiating feature, and include portability under that heading.
@@ -282,7 +294,7 @@ Therefore, I would list stability as being a very critical quality factor for EH
 Finally, I would retain flexibility as an important quality factor for EHR-SaaS systems as practices may wish to vary how they pay for a system or even which parts of a larger EHR system they choose to use.
 For example, a pharmacy will wish to participate in EHR, but it should only need to receive prescriptions from practices and not typically manage patient encounters or send orders.
 
-Here is my unprioritized list of quality factors I conjecture are most critical for an EHR-SaaS system.
+Here is my nonprioritized list of quality factors I conjecture are most critical for an EHR-SaaS system.
 \begin{itemize}
 	\item Rapport (affirmed) 
 	\item Responsiveness (affirmed)
@@ -293,7 +305,7 @@ Here is my unprioritized list of quality factors I conjecture are most critical 
 	\item Interoperability (added)
 \end{itemize}
 
-I would encourage a similar study as rigorous as Bernial, et. al.'s take place on important quality factors for the adoption and continuance of SaaS in order to validate this list, introduce or remove factors, and prioritize the importance of quality factors.
+I would encourage a similar study as rigorous as Benlian, et al.'s take place on important quality factors for the adoption and continuance of SaaS in order to validate this list, introduce or remove factors, and prioritize the importance of quality factors.
 
 \section{Related Work}
 \label{sec:Related}
