@@ -66,8 +66,17 @@ A cloud-based EHR service is very alluring to providers due to reduced infrastru
 I will cover in this paper the quality factors that are likely to be important to purchasers of a cloud-based EHR system.
 
 This paper is written primarily for a reader from the software industry with an interest in EHR, and it may also be of use to a medical provider administrator in charge of selecting such a system.
+This paper can be divided into two major sections:
+\begin{itemize}
+	\item An overview of the high level goals of an EHR system, Meaningful Use, and what sorts of metrics the medical provider must produce, using an EHR system, to attest to Meaningful Use.
+	\item An overview of SaaS, considerations specific to EHR-SaS and suggest metrics an EHR-SaaS software vendor may use to differentiate its product.
+\end{itemize}
 
 In section \ref{sec:Intro_EHR}, I will introduce the EHR system and present a high level overview of the goals and non-functional requirements of such a system.
+
+In section \ref{sec:Define Meaningful Use}, I will introduce the concept of Meaningful Use for the reader.
+
+In section \ref{sec:Meaningful Use Metrics}, I will provide to the reader details and some examples of the metrics a provider must produce in order to attest to Meaningful Use and earn incentives.
 
 In section \ref{sec:Intro_SaaS}, I will introduce the concept of Software-as-a-Service (SaaS) and describe the advantages and challenges of a SaaS solution for the EHR product.
 
@@ -132,6 +141,86 @@ Sources covering the goals of EHR systems typically mentioned the following non-
 % TODO - what about usability here? - not really mentioned in books, but I can cover this later
 % TODO -- also beef up the intro to this by reivisiting sources
 % also -- consider length of committment to EHR ehr-breakup if appropriate later
+
+\section{What is Meaningful Use?}
+\label{sec:Define Meaningful Use}
+
+The phrase "Meaningful Use" was first mentioned in the HITECH Act of 2009.
+This act provided for about \$20 billion, a significant sum, in funds to go to medical providers who "meaningfully use" EHR software to improve clinical care.
+These incentives will help offset the cost of EHR software \cite{health-hack}.
+
+Until the precise definition of "Meaningful Use" and associated certification requirements for EHR systems, there was no clear definition of what an EHR system actually needed to do.
+Therefore, when the medical community asked for an EHR, they could not precisely and consistently specify the desired functionality.
+As Dr. Ignacio Valdes, a highly regarded physician in the Health IT community, observed: "For decades, doctors had no idea what they wanted, and software developers gave it to them" \cite{health-hack}.
+
+The definition of meaningful use criteria is established by about 5,000+ pages of legislation and rules from the ONC, United States Department of Health and Human Services (HHS), and Center for Medicare and Medicaid Services (CMS) and vary considerably based on whether the provider is am ambulatory (outpatient) practice or an inpatient (hospital) facility.
+THe great benefit of the Meaningful Use guidelines is that they clearly specify what medical providers need to do to improve care quality and how they should use their EHR systems to do so.
+It follows then that these guidelines clarify the functionality an EHR system needs to have.
+%Trotter and Ulman (2012) in \underline{Hacking Healthcare} \cite{health-hack}, break the meaningful use objectives down into two distinct groups: a core set of (required) objectives and a "menu" set of objectives from which providers can choose to implement 5 of 10 requirements.
+
+\section{Example Metrics Required for Meaningful Use}
+\label{sec:Meaningful Use Metrics}
+
+CMS breaks meaningful use into Stage 1, 2 and 3 attestation levels.
+With each stage, a facility must meet a prescribed set of objectives and choose a handful of objectives to meet among a specified menu \cite{cms-stage1}.
+The objectives are separated into sets for inpatient facilities and outpatient facilities.
+In this paper, I will discuss the specifics for outpatient facilities for the sake of simplicity and brevity.
+The inpatient facility objectives are in the same spirit as for outpatient facilities, but modified for the particular care model of hospitals, i.e. briefly treating acute conditions, versus an outpatient facility which generally handles long term, preventative care.
+Furthermore, the CMS requires that each facility continue to submit Clinical Quality Measures (CQM) for each year they participate in the Meaningful Use program.
+
+Each objective in Meaningful Use includes a statement of the objective, a specific measure for meeting the objective, and, when applicable, a specific exclusion standard from the objective.
+Many of the objective measures require a certain percentage of patients or orders to be handled with the EHR system to meet the objective.
+Other objective measures are simply a yes/no answer to whether or not a certain objective was implemented.
+Some objectives require a litmus test that the facility can perform a certain functionality.
+
+An example of the above categories are as follows:
+% todo -formatting
+
+\begin{center}
+\begin{tabular}{ p{15cm} }
+	\hline
+	\hline
+\textbf{Example 1 - Percentage (Core Measure 1)} \\
+	\hline
+\textbf{Objective} \\
+Use computerized provider order entry (CPOE) for medication orders directly entered by a licensed healthcare professional who can enter orders into the medical record per state, local and professional guidelines. \\
+\textbf{Measure} \\
+More than 30 percent of all unique patients with at least one medication in their medication list seen by the Eligible Professional (EP) have at least one medication order entered using CPOE. \\
+\textbf{Exclusion} \\
+Based on ALL patient records: Any EP who writes fewer than 100 prescriptions during the EHR reporting period would be excluded from this requirement. Exclusion from  this requirement does not prevent an EP from achieving meaningful use. \\
+	\hline
+	\hline
+\textbf{Example 2 - Yes/No (Core Measure 10)} \\
+	\hline
+\textbf{Objective} \\
+Implement one clinical decision support rule relevant to specialty or high clinical priority along with the ability to track compliance to that rule. \\
+\textbf{Measure} \\
+Have you implemented one clinical decision support rule relevant to specialty or high clinical priority along with the ability to track compliance to that rule? \\
+	\hline
+	\hline
+\textbf{Example 3 - Proof of Implementation (Menu Measure 1)} \\
+	\hline
+\textbf{Objective} \\
+Capability to submit electronic data to immunization registries or Immunization information systems and actual submission according to applicable law and practice. \\
+\textbf{Measure} \\
+Did you perform at least one test of certified EHR technology’s capacity to submit electronic data to immunization registries and follow up submission if the test is successful (unless none of the immunization registries to which the eligible professional submits such information has the capacity to receive the information electronically), except where prohibited? \\
+	\hline
+\end{tabular}
+\end{center}
+
+Based on my review of the Stage 1 and 2 Meaningful Use objectives, I would categorize the objectives in the support of at least the following high level goals and categories:
+\begin{itemize}
+	\item Reduce errors by electronically transmitting information (prescrptions, etc)
+	\item Submit data electronically to public health bureaucracies (immunizations, disease info)
+	\item Communicate electronically between provider organizations
+	\item Enable research or targeted patient outreach
+	\item Improve communication with patient
+	\item Improve follow up with patient about specific conditions
+	\item Improve transition of patient's care between providers
+	\item Improve patient safety via computer checking of allergies, medication conflicts, and computerized decision support
+	\item Ensure privacy and security of patient information (PHI)
+	\item Store patient data as structured data wherever possible (i.e. diagnoses, medications, demographic info)
+\end{itemize}
 
 \section{Introducing Software as a Service (Saas)}
 \label{sec:Intro_SaaS}
@@ -283,7 +372,7 @@ As I mentioned in \ref{sec:SaaS Challenges}, the workflow in each medical practi
 Even if a vendor can convince all of its cardiology practices to adopt workflows similar enough to use the same software product, the vendor will in all likelihood need to provide customizations between specialties at the very least.
 Therefore, I would include "Customization" or "Customizability" as a critical quality for EHR-SaaS products.
 
-In section \ref{sec:NFR of an EHR}, I discussed the non-functional requirements for an EHR system (regardless of implementation type) that I encountered in the literature.
+In section \ref{sec:Goals of an EHR}, I discussed the non-functional requirements for an EHR system (regardless of implementation type) that I encountered in the literature.
 In this section, to summarize, portability, interoperability, security and privacy, and reliability were listed.
 As mentioned previously, security and privacy are mandated by HIPAA, so I will not include them in a list of differentiating features.
 I will, however, retain reliability as a key quality feature from the work by Benlian.
