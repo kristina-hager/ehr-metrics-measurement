@@ -151,19 +151,28 @@ Furthermore, vendors are typically in charge of when and how software upgrades a
 \subsection{Advantages of SaaS for EHR}
 \label{sec:SaaS Adantages}
 
+In this section I will cover the typical advantages of SaaS software for customers and how these specifically apply to an EHR-SaaS system.
+
 \begin{description}
 \item[Cost]
 SaaS products are usually accessed by users via an internet client directed to a specific website.
-In this model, the users typically pay a regular licensing or subscription fee and do not have to make any up front purchase or hardware investments other than to acquire client machines (desktops, laptops, and mobile devices) which are pretty standard to acquire anyway.
+In this model, the users typically pay a regular licensing or subscription fee and do not have to make any up front purchase or hardware investments other than to acquire client machines (desktops, laptops, and mobile devices). 
+A doctor's office will typically need to acquire client machines in order to conduct business. Overall, choosing a SaaS will require less expensive and less total hardware than a more traditional EHR system.
+
 \item[Reliability]
 Practices can negotiate contracts with vendors with specific uptime guarantees \cite{wiki-saas}, problem resolution and customer service response.
 My estimate is that a vendor should be able to provide much more rigorous guarantees for these concerns than a typical in-house IT staff.
 
 \item[Maintenance and upgrades]
-Software customers often dread (with good reason) the moments when they are required to update the software they have been using.
+Software customers often dread (with good reason) the moments when they are required to update the software or hardware they have been using.
 Since a SaaS product is usually hosted by the vendor and delivered to the clients via a web browser, then vendor then takes on the cost and responsibility of rolling out software updates.
-Most SaaS providers will deliver these updates to users automatically and much more frequently than is typical of a traditional software product.
+Furthermore, the vendors of a SaaS product manage their own data centers and server hardware completely out of sight of customers.
+Most SaaS providers will deliver software updates to users automatically and much more frequently than is typical of a traditional software product.
 Frequent updates offer many advantages to the end user including more rapid delivery of new features and more incremental changes that reduce the likelihood of major outages or breakages and reduce the scope of changes that may confuse the user.
+For a medical practice, this advantage will be a bit of a mixed blessing.
+On one hand, the practice will no longer bear the burden of undertaking a software upgrade.
+Furthermore, the practice will only need to maintain local client machines and infrastructure and will not need to concern itself at all with server and other hard centralized hardware upgrades.
+On the other hand, the practice will have little to no choice about when to take an upgrade and overall a medical practice is more interested in stability of their software than the average cloud service customer.
 
 \item[Security]
 Since the vendor is hosting the data, data security is an area of concern that is typically listed as a disadvantage of SaaS \cite{wiki-saas}.
@@ -175,30 +184,33 @@ Furthermore, the fines enacted by HIPAA against negligence around and misuse of 
 \subsection{Challenges of SaaS for EHR}
 \label{sec:SaaS Challenges}
 
+In this section, I will discuss the aspects of a SaaS software product that are likely to be a challenge and/or a concern from the EHR point of view.
+
 \begin{description}
 \item[Customization]
-The very thing that drives the cost-efficiency of a SaaS product, i.e. multi-tenancy, normally limits the ability of the product to be customized for a specific customer.
+The very thing that drives the cost-efficiency of a SaaS product, i.e. multi-tenancy, limits the ability of the product to be customized for a specific customer.
 This concern is particularly strong when it comes to medical practice workflows, i.e. the processes a medical office typically follows for a patient visit, for scheduling, to process referrals, and so on.
-There is a saying in the medical field: "When you have seen one medical practice, you have seen one medical practice" that strongly reinforces this concern \cite{health-hack}.
+There is a saying in the medical field: "When you've seen one medical practice, you've seen one medical practice" that strongly reinforces this concern \cite{health-hack}.
 It may be possible to convince medical practices in the same specialty to converge to a more or less similar workflow even though it will involve retraining nearly every member of the provider's staff, including the doctors. 
-However, it will be nearly impossible to expect practices from disparate specialrties such as pediatrics vs. oncology to converge to the same workflows.
+However, it will be nearly impossible to expect practices from disparate specialties such as pediatrics vs. oncology to converge to the same workflows.
 Therefore, EHR software will need to be customized at least for each specialty.
 
 \item[Access and transferability of data]
 With SaaS-EHR systems, individual patient data and other patient and practice specific data will be hosted on the vendor's servers.
 If the medical provider ever wishes to change EHR systems, her office will need to be able to transfer records from one vendor to the other.
 The provider should take care to address exit strategies and concerns with any vendor offering an EHR system \cite{ehr-breakup}.
-Even with the most well though out contract and plans, the transition from one EHR system to another will be a significant cost to the practice.
+Even with the most well though out contract and plans, the transition from one EHR system to another will be a significant disruption to the practice.
 
 \item[Stability]
-SaaS providers update their versions frequently and typically require users to use the latest version of the software.
+SaaS providers update their versions frequently and typically force users to use the latest version of the software.
 While this is often a good thing, some users may be frustrated by changes in product they have become used to \cite{wiki-saas}.
 In EHR, this is a much greater concern since these changes may result in errors made by the users (the medical provider's staff) that impact patient safety in a negative way.
+See the discussion of "Maintenance and upgrades" in \ref{sec:SaaS Adantages}.
 
 \end{description}
 
 Overall, an EHR system delivered as a service should be very attractive to medical providers whose main mission is to provide high quality medical care and not to become IT and Health IT organizations.
-However, adopting practices should seriously consider the above challenges.
+However, adopting practices need to seriously consider and plan for the above challenges.
 
 \section{Differentiating an EHR-SaaS Product}
 \label{sec:Critical-EhrSaaS-Ilities}
@@ -244,8 +256,8 @@ This paper provides both an exemplary model for doing similar research regarding
 \subsection{Conjectures on Critical Non-Functional Requirements of an EHR-SaaS Product}
 \label{sec:Critical-EHR-Ilities}
 
-Unfortunately, I was not able to find papers studying the criticality of non-functional requirements for EHR-SaaS systems with the same rigor as \cite{saasqual}.
-However, from the research by Benlian, et al. in \cite{saasqual}, I can start outlining thoughts about what might be unique about an EHR-SaaS product versus a generic SaaS product.
+Unfortunately, I was not able to find papers studying the criticality of non-functional requirements for EHR-SaaS systems with the same rigor as Benlian, et al. in \cite{saasqual}.
+However, from their research, I can start outlining thoughts about what might be unique about an EHR-SaaS product versus a generic SaaS product.
 % err, offer a critique
 
 First, in \cite{saasqual}, the authors are primarily concerned with the continuance of the usage of a SaaS product and not on how quality factors influence the decision to adopt a SaaS product.
@@ -279,7 +291,7 @@ A given practice will need to cooperate with countless other medical practices i
 Given the freedom of choice of EHR providers, these other practices will often and most likely have different implementations of an EHR system.
 Therefore, I will add interoperability as a key differentiating feature, and include portability under that heading.
 
-In section \ref{sec:SaaS Challenges}, I mentioned one challenge of SaaS adoption for EHR and for other systems is stability.
+In section \ref{sec:Goals of an EHR}, I mentioned one challenge of SaaS adoption for EHR and for other systems is stability.
 Namely, the SaaS delivery model puts the vendor in control of when and how new versions of software is rolled out.
 Most SaaS vendors roll out relatively smaller updates frequently to customers, and customers have no choice but to use the latest version.
 Often, users barely notice that their software has been updated and proceed happily along.
