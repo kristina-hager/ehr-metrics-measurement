@@ -69,20 +69,24 @@ This paper is written primarily for a reader from the software industry with an 
 This paper can be divided into two major sections:
 \begin{itemize}
 	\item An overview of the high level goals of an EHR system, Meaningful Use, and what sorts of metrics the medical provider must produce, using an EHR system, to attest to Meaningful Use.
-	\item An overview of SaaS, considerations specific to EHR-SaS and suggest metrics an EHR-SaaS software vendor may use to differentiate its product.
+	\item An overview of SaaS, considerations specific to EHR-SaaS and suggest metrics an EHR-SaaS software vendor may use to differentiate its product.
 \end{itemize}
 
-In section \ref{sec:Intro_EHR}, I will introduce the EHR system and present a high level overview of the goals and non-functional requirements of such a system.
+In section \ref{sec:Intro_EHR}, I will introduce the EHR system.
+
+In section \ref{sec:Goals of an EHR}, I will present a high level overview of the goals and non-functional requirements of such a system.
 
 In section \ref{sec:Define Meaningful Use}, I will introduce the concept of Meaningful Use for the reader.
 
 In section \ref{sec:Meaningful Use Metrics}, I will provide to the reader details and some examples of the metrics a provider must produce in order to attest to Meaningful Use and earn incentives.
 
-In section \ref{sec:Intro_SaaS}, I will introduce the concept of Software-as-a-Service (SaaS) and describe the advantages and challenges of a SaaS solution for the EHR product.
+In section \ref{sec:CQM}, I will provide an overview of the Clinical Quality Measures (CQM) that a provider must report to maintain Meaningful Use and earn incentives.
 
-In section \ref{sec:Critical-EhrSaaS-Ilities}, I will discuss how the providers of an EHR-SaaS system can differentiate their product in the marketplace. 
-I will first cover existing research by Benlian, Koufaris, and Hess (2011, \cite{saasqual}) on the critical non-functional requirements of a generic business-to-business SaaS product.
-With Benlian, et al.'s work as a solid foundation, I will offer a critique of their conclusions from the perspective of an EHR-SaaS system and a modified list of quality factors I conjecture to be critical for this unique product.
+In section \ref{sec:Intro_SaaS}, I will introduce the concept of Software-as-a-Service (SaaS) and in describe the advantages and challenges of a SaaS solution for the EHR product in sections \ref{sec:SaaS Adantages} and \ref{sec:SaaS Challenges}.
+ 
+In section \ref{sec:Critical-EhrSaaS-Ilities}, I will offer my thoughts how the providers of an EHR-SaaS system can differentiate their product in the marketplace by presenting the critical non-functional requirements of a generic SaaS product and my thoughts on the critical non-functional requirements for an EHR-SaaS product in sections \ref{sec:Critical-SaaS-Ilities} and \ref{sec:Critical-EHR-Ilities}. 
+%I will first cover existing research by Benlian, Koufaris, and Hess (2011, \cite{saasqual}) on the critical non-functional requirements of a generic business-to-business SaaS product.
+%With Benlian, et al.'s work as a solid foundation, I will offer a critique of their conclusions from the perspective of an EHR-SaaS system and a modified list of quality factors I conjecture to be critical for this unique product.
 
 \section{Introducing the EHR System}
 \label{sec:Intro_EHR}
@@ -142,7 +146,7 @@ Sources covering the goals of EHR systems typically mentioned the following non-
 % TODO -- also beef up the intro to this by reivisiting sources
 % also -- consider length of committment to EHR ehr-breakup if appropriate later
 
-\section{What is Meaningful Use?}
+\subsection{What is Meaningful Use?}
 \label{sec:Define Meaningful Use}
 
 The phrase "Meaningful Use" was first mentioned in the HITECH Act of 2009.
@@ -158,7 +162,7 @@ THe great benefit of the Meaningful Use guidelines is that they clearly specify 
 It follows then that these guidelines clarify the functionality an EHR system needs to have.
 %Trotter and Ulman (2012) in \underline{Hacking Healthcare} \cite{health-hack}, break the meaningful use objectives down into two distinct groups: a core set of (required) objectives and a "menu" set of objectives from which providers can choose to implement 5 of 10 requirements.
 
-\section{Example Metrics Required for Meaningful Use}
+\subsection{Example Metrics Required for Meaningful Use}
 \label{sec:Meaningful Use Metrics}
 
 CMS breaks meaningful use into Stage 1, 2 and 3 attestation levels.
@@ -166,12 +170,14 @@ With each stage, a facility must meet a prescribed set of objectives and choose 
 The objectives are separated into sets for inpatient facilities and outpatient facilities.
 In this paper, I will discuss the specifics for outpatient facilities for the sake of simplicity and brevity.
 The inpatient facility objectives are in the same spirit as for outpatient facilities, but modified for the particular care model of hospitals, i.e. briefly treating acute conditions, versus an outpatient facility which generally handles long term, preventative care.
-Furthermore, the CMS requires that each facility continue to submit Clinical Quality Measures (CQM) for each year they participate in the Meaningful Use program.
+Furthermore, the CMS requires that each facility continue to submit Clinical Quality Measures (CQM) (see section \ref{sec:CQM}) for each year they participate in the Meaningful Use program.
 
 Each objective in Meaningful Use includes a statement of the objective, a specific measure for meeting the objective, and, when applicable, a specific exclusion standard from the objective.
 Many of the objective measures require a certain percentage of patients or orders to be handled with the EHR system to meet the objective.
 Other objective measures are simply a yes/no answer to whether or not a certain objective was implemented.
 Some objectives require a litmus test that the facility can perform a certain functionality. Examples of these questions are listed in table \ref{table:mu_metrics_example}.
+
+\input{tables/mu_metrics.tex}
 
 Based on my review of the Stage 1 and 2 Meaningful Use objectives, I would categorize the objectives in the support of at least the following high level goals and categories:
 \begin{itemize}
@@ -187,7 +193,23 @@ Based on my review of the Stage 1 and 2 Meaningful Use objectives, I would categ
 	\item Store patient data as structured data wherever possible (i.e. diagnoses, medications, demographic info)
 \end{itemize}
 
-\input{tables/mu_metrics.tex}
+\subsection{Reporting Clinical Quality Measures}
+\label{sec:CQM}
+
+\input{tables/cqm.tex}
+
+Providers participating in the Meaningful Use incentive program must report annually on at least a subset of Clinical Quality Measures as defined by CMS.
+These measures cover these priorities for health care quality improvement as established by HHS \cite{cqm-intro}:
+\begin{enumerate}
+	\item Patient and Family Engagement
+	\item Patient Safety
+	\item Care Coordination
+	\item Population/Public Health
+	\item Efficient Use of Healthcare Resources
+	\item Clinical Process/Effectiveness
+\end{enumerate}
+
+Based on my review of the 2014 clinical quality measures for outpatient care as in \cite{cqm-pdf}, the measures typically affirm that the medical practice is providing what should be standard maintenance care for chronic conditions with a goal of improving health and reducing long term costs. I show some examples in table \ref{table:cqm}.
 
 \section{Introducing Software as a Service (Saas)}
 \label{sec:Intro_SaaS}
@@ -201,8 +223,6 @@ In other words, customers share the same codebase and physical infrastructure in
 An advantage to this configuration is that customers can expect higher network bandwidth, reliability, and relatively lower cost.
 However, this model does constrain the ability to customize the software for different customers.
 Furthermore, vendors are typically in charge of when and how software upgrades are rolled out meaning customers generally have no choice but to adopt upgrades \cite{saasqual}.
-
-
 
 \subsection{Advantages of SaaS for EHR}
 \label{sec:SaaS Adantages}
@@ -284,7 +304,7 @@ Therefore, developers of a software product must focus on the qualities that cus
 
 Over the past couple of decades, researchers have engaged in extensive study on what qualities customers consider important for traditional (non-SaaS) software products.
 However, the research on traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
-Benlian, et al. engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
+Benlian, Koufaris, and Hess (2011, \cite{saasqual} engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
 They determined the below factors as having primary importance in this order with responsiveness and security as clear leaders:
 \begin{description}
 	\item[Responsiveness]
@@ -375,20 +395,9 @@ Here is my nonprioritized list of quality factors I conjecture are most critical
 
 I would encourage a similar study as rigorous as Benlian, et al.'s take place on important quality factors for the adoption and continuance of SaaS in order to validate this list, introduce or remove factors, and prioritize the importance of quality factors.
 
-\section{Related Work}
-\label{sec:Related}
-etc
-
 \section{Conclusions and Future Work}
 
-\subsection{Conclusions-Subsection}
-\label{sec:Conclusions-Subsection}
-
 Conclusions go here. 
-
-\subsection{Future Work}
-\label{sec:Future Work}
-Thoughts on future work go here.
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
