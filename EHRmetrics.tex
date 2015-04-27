@@ -395,14 +395,12 @@ Here is my nonprioritized list of quality factors I conjecture are most critical
 
 I would encourage a similar study as rigorous as Benlian, et al.'s take place on important quality factors for the adoption and continuance of SaaS in order to validate this list, introduce or remove factors, and prioritize the importance of quality factors.
 
-\subsection{Fishing for Metrics for a SaaS-EHR System}
+\section{Fishing for Metrics for a SaaS-EHR System}
 \label{sec:EHR-SaaS-Metrics}
 
 % top-6-metrics: http://articles.bplans.com/the-6-most-important-web-metrics-to-track-for-your-business-website/
 
-For the sake of this discussion, an EHR-SaaS system is essentially a web application.
-% I do not think there are too many consumer level web applications that resemble an EHR system.
-%However, 
+An EHR-SaaS system is essentially a web application.
 Google Drive, Gmail, Wordpress, Mint.com, and so on are examples of various web applications an average consumer might use.
 The closest analogy for an EHR system will originate from the business to business SaaS world such as a CRM system like Salesforce.com.
 
@@ -419,14 +417,14 @@ One such page lists the top 6 metrics as \cite{top-6-metrics}:
 %TODO - format the above better
 
 These sound like they are really good metrics for more typical websites or web applications.
-However, for an EHR-SaaS system they are largely not that important (other than for, perhaps, a website marketing an EHR-SaaS application).
+However, for an EHR-SaaS system they are largely not that relevamt (other than for, perhaps, a website marketing an EHR-SaaS application).
 
 \textbf{Visitors}: Typically, an EHR-SaaS web application should be getting visitors primarily from people who are already users of the system because, say, their employer or doctor is a user of that particular EHR system.
 The website for the EHR-SaaS system might occasionally get visits from people just curious about the system or, worse, people trying to take advantage of the system.
 Therefore, this metric may be interesting to track for the sake of security, i.e. to flag unusual activity.
 However, it is overall not a leading metric for an EHR system.
 
-\textbf{Referrals}: Although the marketing team should be interested in how medical practices hear about their EHR-SaaS system, this is not what this metric means in the sense of website metrics.
+\textbf{Referrals}: Although the marketing team should be interested in how medical practices hear about their EHR-SaaS system, this is not what this term means in the sense of website metrics.
 As above, visitors should be coming to visit the EHR-SaaS website because they are already a user.
 
 \textbf{Bounce Rate}: Again, this is not an interesting metric. If a person who is not already a user manages to accidentally type in the URL to an EHR-SaaS system, she may leave immediately because she cannot login.
@@ -434,7 +432,7 @@ As above, visitors should be coming to visit the EHR-SaaS website because they a
 \textbf{Exit Pages}: This might be somewhat interesting to track in order to figure out what the last thing a medical practice user typically does with the system before leaving work for the day or what the last thing a patient portal visitor does before logging out.
 However, this is again not likely to be in the list of most useful metrics for an EHR-SaaS system.
 
-\textbf{Conversion Rate}: Of the metrics mentioned thus far, this might be the most useful.
+\textbf{Conversion Rate}: Of the metrics mentioned thus far, this might one of the more relevant.
 If the goal is defined as "finishes recording a patient encounter" or "patient user retrieves lab results" or some other stated functionality goal of the EHR system, then this may be worthwhile to track.
 This rate could indicate how often users are "finishing" a task they start which may be a good indication of "usability".
 However, a structured approach to determine which metrics are most useful is required to determine how useful this metric will be to an EHR-SaaS system.
@@ -446,10 +444,39 @@ An EHR-SaaS system is a very unique web application and SaaS product.
 As shown above, the standard website metrics are not going to fit this product or provide a good way to measure an EHR-SaaS product.
 Next, I would be forced to ask what the developers and/or users of an EHR-SaaS system might be trying to learn from these metrics.
 
-\subsection{A Structured Approach for Finding EHR-SaaS Metrics}
-\label{sec:EHR-SaaS-GQM}
+\subsection{Proposing A Structured Approach for Finding EHR-SaaS Metrics}
+\label{sec:EHR-SaaS-GQM-Intro}
 
-todo
+In the previous section, I showed that the typical "top website metrics" do not provide much relevant information for evaluating an EHR-SaaS web application.
+The owners of an EHR-SaaS product need to start with the high level question "What are our business goals?" related to the EHR-SaaS product.
+Necessarily, this question is best asked at the executive level of the organization and not at the developer level.
+If you start with the developers, you are likely to get a bunch of low level answers like "Improve page load times", "Improve usability", or "Reduce complexity in the code base".
+While these are all valid goals, they may or may not be in support of the most important business objectives.
+Since very few organizations have infinite resource, the organization will need to determine the most important business objectives, determine the measurement criteria from there, and then prioritize those specific metrics.
+
+Readers from a software background may be familiar with Victor Basili and Dieter Rombach's seminal work establishing a goal-driven measurement process called the Goal-Question-Metric (GQM) methodology \cite{TODO}.
+This methodology establishes a rigorous process for establishing first what business goals an organization wants to achieve and then determining the specific metrics needed to evaluate progress towards that goal.
+After all, if a metric is not supporting a real business goal, then it is just a set of numbers.
+Worse, the tracking of a not well though out metric may push the developers to focus on improving this metric and miss an opportunity to focus on improvements that could improve the business viability of the product.
+
+\subsection{Intordoucing the GQ(I)M Methodology for an EHR-SaaS Product}
+\label{sec:EHR-SaaS-GQM-Methodology}
+
+The Goal-Question-(Indicator)-Metric ( GQ(I)M ) is an extension of Basili and Rombach's GQM methodology outlined by Park, Goethert, and Florac of the Software Engineering Institute in 1996.
+I will advocate this methodology here as I consider it a well thought out implementation of the original GQM methodology enhanced by the added 'Indicator' (I) step.
+The GQ(I)M process is based on these three principles \cite{sei-gqim}:
+\begin{itemize}
+	\item Measurement goals are derived from business goals.
+	\item Evolving mental models provide context and focus.
+	\item GQ(I)M translates informal goals into executable measurement structures.
+\end{itemize}
+
+
+
+%The first goal for an EHR-SaaS product is going to be whether or not it can perform the required functionality.
+%For this question, I will rely on the certification requirements set by the ONC and assume that from here on out we are discussing certified EHR %products whose basic functionality is assured.
+%Once basic functionality is verified, the product owner (and product buyers) need to determine what business level objectives are most important.
+
 
 \section{Conclusions and Future Work}
 
