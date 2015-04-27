@@ -150,7 +150,7 @@ Sources covering the goals of EHR systems typically mentioned the following non-
 \label{sec:Define Meaningful Use}
 
 The phrase "Meaningful Use" was first mentioned in the HITECH Act of 2009.
-This act provided for about \$20 billion, a significant sum, in funds to go to medical providers who "meaningfully use" EHR software to improve clinical care.
+This legislation provided for about \$20 billion, a significant sum, in funds to go to medical providers who "meaningfully use" EHR software to improve clinical care.
 These incentives will help offset the cost of EHR software \cite{health-hack}.
 
 Until the precise definition of "Meaningful Use" and associated certification requirements for EHR systems, there was no clear definition of what an EHR system actually needed to do.
@@ -158,7 +158,7 @@ Therefore, when the medical community asked for an EHR, they could not precisely
 As Dr. Ignacio Valdes, a highly regarded physician in the Health IT community, observed: "For decades, doctors had no idea what they wanted, and software developers gave it to them" \cite{health-hack}.
 
 The definition of meaningful use criteria is established by about 5,000+ pages of legislation and rules from the ONC, United States Department of Health and Human Services (HHS), and Center for Medicare and Medicaid Services (CMS) and vary considerably based on whether the provider is am ambulatory (outpatient) practice or an inpatient (hospital) facility.
-THe great benefit of the Meaningful Use guidelines is that they clearly specify what medical providers need to do to improve care quality and how they should use their EHR systems to do so.
+The great benefit of the Meaningful Use guidelines is that they clearly specify what medical providers need to do to improve care quality and how they should use their EHR systems to do so.
 It follows then that these guidelines clarify the functionality an EHR system needs to have.
 %Trotter and Ulman (2012) in \underline{Hacking Healthcare} \cite{health-hack}, break the meaningful use objectives down into two distinct groups: a core set of (required) objectives and a "menu" set of objectives from which providers can choose to implement 5 of 10 requirements.
 
@@ -169,19 +169,19 @@ CMS breaks meaningful use into Stage 1, 2 and 3 attestation levels.
 With each stage, a facility must meet a prescribed set of objectives and choose a handful of objectives to meet among a specified menu \cite{cms-stage1}.
 The objectives are separated into sets for inpatient facilities and outpatient facilities.
 In this paper, I will discuss the specifics for outpatient facilities for the sake of simplicity and brevity.
-The inpatient facility objectives are in the same spirit as for outpatient facilities, but modified for the particular care model of hospitals, i.e. briefly treating acute conditions, versus an outpatient facility which generally handles long term, preventative care.
+The inpatient facility objectives are in the same spirit as for outpatient facilities, but modified for the particular care model of hospitals, i.e. briefly treating acute conditions, versus an outpatient facility, which generally handles long term, preventative care.
 Furthermore, the CMS requires that each facility continue to submit Clinical Quality Measures (CQM) (see section \ref{sec:CQM}) for each year they participate in the Meaningful Use program.
 
 Each objective in Meaningful Use includes a statement of the objective, a specific measure for meeting the objective, and, when applicable, a specific exclusion standard from the objective.
 Many of the objective measures require a certain percentage of patients or orders to be handled with the EHR system to meet the objective.
 Other objective measures are simply a yes/no answer to whether or not a certain objective was implemented.
-Some objectives require a litmus test that the facility can perform a certain functionality. Examples of these questions are listed in table \ref{table:mu_metrics_example}.
+Some objectives require a litmus test that the facility can perform certain functionality. Examples of these questions are listed in table \ref{table:mu_metrics_example}.
 
 \input{tables/mu_metrics.tex}
 
 Based on my review of the Stage 1 and 2 Meaningful Use objectives, I would categorize the objectives in the support of at least the following high level goals and categories:
 \begin{itemize}
-	\item Reduce errors by electronically transmitting information (prescrptions, etc)
+	\item Reduce errors by electronically transmitting information (prescriptions, etc.)
 	\item Submit data electronically to public health bureaucracies (immunizations, disease info)
 	\item Communicate electronically between provider organizations
 	\item Enable research or targeted patient outreach
@@ -211,7 +211,7 @@ These measures cover these priorities for health care quality improvement as est
 
 Based on my review of the 2014 clinical quality measures for outpatient care as in \cite{cqm-pdf}, the measures typically affirm that the medical practice is providing what should be standard maintenance care for chronic conditions with a goal of improving health and reducing long term costs. I show some examples in table \ref{table:cqm}.
 
-\section{Introducing Software as a Service (Saas)}
+\section{Introducing Software as a Service (SaaS)}
 \label{sec:Intro_SaaS}
 
 As mentioned in section \ref{sec:Introduction} a cloud-based delivery model for EHR systems is likely to be appealing for medical providers since these systems typically require much less up front investment and should offload maintenance and overhead to the vendor of the system.
@@ -253,7 +253,7 @@ On the other hand, the practice will have little to no choice about when to take
 \item[Security]
 Since the vendor is hosting the data, data security is an area of concern that is typically listed as a disadvantage of SaaS \cite{wiki-saas}.
 However, in the case of EHR systems, I would argue that the software vendor is in a better position to ensure data security as they should have greater expertise in IT security than a typical medical provider office.
-Furthermore, the fines enacted by HIPAA against negligence around and misuse of PHI motivate anyone dealing with this type of information to take appropriate precautions.
+Furthermore, the fines enacted by HIPAA against negligence around and misuse of PHI motivates anyone dealing with this type of information to take appropriate precautions.
 
 \end{description}
 
@@ -303,7 +303,7 @@ Therefore, developers of a software product must focus on the qualities that cus
 \label{sec:Critical-SaaS-Ilities}
 
 Over the past couple of decades, researchers have engaged in extensive study on what qualities customers consider important for traditional (non-SaaS) software products.
-However, the research on traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
+However, the reseshould be centered onarch on traditional products is insufficient for SaaS products as too many aspects of the delivery, support, installation, maintenance, pricing and so on are different.
 Benlian, Koufaris, and Hess (2011, \cite{saasqual} engaged in a rigorous study in \cite{saasqual} of the qualities a purchaser would consider most important in deciding whether or not to continue with a SaaS product.
 They determined the below factors as having primary importance in this order with responsiveness and security as clear leaders:
 \begin{description}
@@ -322,8 +322,8 @@ They determined the below factors as having primary importance in this order wit
 \end{description}
 (All definitions above are quoted directly from \cite{saasqual}).
 
-Fortunately, Benlian, et al.'s study was specifically on business to business (B2B) SaaS products. 
-EHR systems do belong to the B2B category although as a very unique and distinct type of B2B sotware.
+Fortunately, Benlian, et al.'s study was specifically on business-to-business (B2B) SaaS products. 
+EHR systems do belong to the B2B category although as a very unique and distinct type of B2B software.
 I consider the study and paper by Benlian, et. al in \cite{saasqual} to be excellent and rigorous.
 This paper provides both an exemplary model for doing similar research regarding EHR-SaaS products and a great starting point for discussion of which qualities should be prioritized for an EHR-SaaS product.
 
@@ -402,7 +402,7 @@ I would encourage a similar study as rigorous as Benlian, et al.'s take place on
 
 An EHR-SaaS system is essentially a web application.
 Google Drive, Gmail, Wordpress, Mint.com, and so on are examples of various web applications an average consumer might use.
-The closest analogy for an EHR system will originate from the business to business SaaS world such as a CRM system like Salesforce.com.
+The closest analogy for an EHR system will originate from the business-to-business SaaS world such as a CRM system like Salesforce.com.
 
 An internet search for "web metrics" or "website analytics" will uncover lists of typical metrics used to analyze a website's performance, many tools to aid the user in this analysis, and many pages claiming to list the most important metrics every web page should be tracking regularly.
 One such page lists the top 6 metrics as \cite{top-6-metrics}:
@@ -417,7 +417,7 @@ One such page lists the top 6 metrics as \cite{top-6-metrics}:
 %TODO - format the above better
 
 These sound like they are really good metrics for more typical websites or web applications.
-However, for an EHR-SaaS system they are largely not that relevamt (other than for, perhaps, a website marketing an EHR-SaaS application).
+However, for an EHR-SaaS system they are largely not that relevant (other than for, perhaps, a website marketing an EHR-SaaS application).
 
 \textbf{Visitors}: Typically, an EHR-SaaS web application should be getting visitors primarily from people who are already users of the system because, say, their employer or doctor is a user of that particular EHR system.
 The website for the EHR-SaaS system might occasionally get visits from people just curious about the system or, worse, people trying to take advantage of the system.
@@ -456,7 +456,7 @@ Readers with a foundational software metrics and measurement background should b
 This methodology establishes a rigorous process for establishing first what business goals an organization wants to achieve and then determining the specific metrics needed to evaluate progress towards that goal.
 The owners of an EHR-SaaS product need to start with the high level question "What are our business goals?" related to the EHR-SaaS product.
 Necessarily, this question should be asked at an executive level of the organization and not at the developer level.
-If you start with the developers, you are likely to get a bunch of low level answers like "Improve page load times", "Improve usability", or "Reduce complexity in the code base".
+If you start with the developers, you are likely to get a bunch of low-level answers like "Improve page load times", "Improve usability", or "Reduce complexity in the code base".
 While these are all noble goals from a developer's point of view, they may or may not be in support of the most important business objectives.
 Since very few organizations have infinite resource, the organization will need to determine the most important business objectives, determine the measurement criteria from there, and then prioritize those specific metrics.
 
@@ -491,7 +491,7 @@ The process consists of these ten steps:
 In order to complete the ten steps of the GQ(I)M process, you will need a thorough understanding of the product and processes around creating that product.
 Therefore, these steps are necessarily undertaken by the organization that is creating the software product under measure.
 It is definitely a lot of work to follow these ten steps.
-However, if you do all the necessary work and documentation required by these steps, you will have produced an invaluable measurement plan for your product that will allow you to measure your progress towards completing identified business goals.
+However, if you do all the necessary work and documentation required by these steps, you would have produced an invaluable measurement plan for your product that will allow you to measure your progress towards completing identified business goals.
 Furthermore, you will have created some good documentation and research into your existing product and processes.
 In my own work with these steps, I found step 6 (Identifying Quantifiable Questions and Indicators) to be particularly valuable for making sure that the metrics chosen can be used to meaningfully represent progress towards a goal.
 I highly encourage the reader to review the work at \cite{sei-gqim} and other resources regarding the GQM and GQ(I)M methodology.
@@ -503,7 +503,7 @@ For this question, I will rely on the certification requirements set by the ONC 
 
 The next goal for an EHR-SaaS product should be centered around the Service Level Agreement (SLA) that you either have with customers or desire to have with customers.
 These SLA's should include very specific terms around service uptime and/or downtime, customer support availability hours and response times, page load times, and so on.
-An good example of specific SLA language is: ""Downtime Period" means, for the EHR, a period of ten consecutive minutes of Downtime. Intermittent Downtime for a period of less than ten minutes will not be counted towards any Downtime Periods." \cite{emr-sla-example}. 
+A good example of specific SLA language is: ""Downtime Period" means, for the EHR, a period of ten consecutive minutes of Downtime. Intermittent Downtime for a period of less than ten minutes will not be counted towards any Downtime Periods." \cite{emr-sla-example}. 
 From the SLA for an EHR-SaaS product, you can clearly create some specific measurements.
 An organization must also necessarily focus on meeting the SLA requirements in order to remain in good standing with customers.
 
