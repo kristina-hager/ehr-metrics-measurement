@@ -395,6 +395,62 @@ Here is my nonprioritized list of quality factors I conjecture are most critical
 
 I would encourage a similar study as rigorous as Benlian, et al.'s take place on important quality factors for the adoption and continuance of SaaS in order to validate this list, introduce or remove factors, and prioritize the importance of quality factors.
 
+\subsection{Fishing for Metrics for a SaaS-EHR System}
+\label{sec:EHR-SaaS-Metrics}
+
+% top-6-metrics: http://articles.bplans.com/the-6-most-important-web-metrics-to-track-for-your-business-website/
+
+For the sake of this discussion, an EHR-SaaS system is essentially a web application.
+% I do not think there are too many consumer level web applications that resemble an EHR system.
+%However, 
+Google Drive, Gmail, Wordpress, Mint.com, and so on are examples of various web applications an average consumer might use.
+The closest analogy for an EHR system will originate from the business to business SaaS world such as a CRM system like Salesforce.com.
+
+An internet search for "web metrics" or "website analytics" will uncover lists of typical metrics used to analyze a website's performance, many tools to aid the user in this analysis, and many pages claiming to list the most important metrics every web page should be tracking regularly.
+One such page lists the top 6 metrics as \cite{top-6-metrics}:
+\begin{description}
+	\item[Visitors] How many people (preferably unique) visit your site during a defined period of time?
+	\item[Referrals] Where does the traffic that reaches your site originate?
+	\item[Bounce Rate] How often does someone visit your site and then immediately exit?
+	\item[Exit Pages] When a user visits your site and views multiple pages, which page is the final page she visits?
+	\item[Conversion Rate] What percentage of people reach the "goal" when visiting your site? The "goal" might be purchasing something or finding an article, etc.
+	\item[The Top 10 Pages] What are the top ten pages users view on your site?
+\end{description}
+%TODO - format the above better
+
+These sound like they are really good metrics for more typical websites or web applications.
+However, for an EHR-SaaS system they are largely not that important (other than for, perhaps, a website marketing an EHR-SaaS application).
+
+\textbf{Visitors}: Typically, an EHR-SaaS web application should be getting visitors primarily from people who are already users of the system because, say, their employer or doctor is a user of that particular EHR system.
+The website for the EHR-SaaS system might occasionally get visits from people just curious about the system or, worse, people trying to take advantage of the system.
+Therefore, this metric may be interesting to track for the sake of security, i.e. to flag unusual activity.
+However, it is overall not a leading metric for an EHR system.
+
+\textbf{Referrals}: Although the marketing team should be interested in how medical practices hear about their EHR-SaaS system, this is not what this metric means in the sense of website metrics.
+As above, visitors should be coming to visit the EHR-SaaS website because they are already a user.
+
+\textbf{Bounce Rate}: Again, this is not an interesting metric. If a person who is not already a user manages to accidentally type in the URL to an EHR-SaaS system, she may leave immediately because she cannot login.
+
+\textbf{Exit Pages}: This might be somewhat interesting to track in order to figure out what the last thing a medical practice user typically does with the system before leaving work for the day or what the last thing a patient portal visitor does before logging out.
+However, this is again not likely to be in the list of most useful metrics for an EHR-SaaS system.
+
+\textbf{Conversion Rate}: Of the metrics mentioned thus far, this might be the most useful.
+If the goal is defined as "finishes recording a patient encounter" or "patient user retrieves lab results" or some other stated functionality goal of the EHR system, then this may be worthwhile to track.
+This rate could indicate how often users are "finishing" a task they start which may be a good indication of "usability".
+However, a structured approach to determine which metrics are most useful is required to determine how useful this metric will be to an EHR-SaaS system.
+
+\textbf{The Top 10 Pages}: As in 'Exit Pages', this may be interesting in order to determine where users spend the most time in order to determine where to focus usability or speed efforts.
+As in 'Conversion Rate', I would propose the use of a more structured program to determine where and how this metric could be useful.
+
+An EHR-SaaS system is a very unique web application and SaaS product.
+As shown above, the standard website metrics are not going to fit this product or provide a good way to measure an EHR-SaaS product.
+Next, I would be forced to ask what the developers and/or users of an EHR-SaaS system might be trying to learn from these metrics.
+
+\subsection{A Structured Approach for Finding EHR-SaaS Metrics}
+\label{sec:EHR-SaaS-GQM}
+
+todo
+
 \section{Conclusions and Future Work}
 
 Conclusions go here. 
