@@ -338,7 +338,7 @@ However, from their research, I can start outlining thoughts about what might be
 
 First, in \cite{saasqual}, the authors are primarily concerned with the continuance of the usage of a SaaS product and not on how quality factors influence the decision to adopt a SaaS product.
 I suppose that they focus on continuance rather than adoption because, as they state it, customers can switch SaaS providers easily \cite{saasqual}. 
-I am not convinced that it is that easy for a customer to switch between SaaS providers even in certain fairly mundane cases.
+I am not convinced that it is always easy for a customer to switch between SaaS providers even in certain fairly mundane cases.
 However, in the case of EHR, a medical practice will definitely find it very expensive and time consuming to switch EHR providers due, at minimum, to the sheer amount of data that must be ported and to the amount of time and expense required to train the medical staff.
 Therefore, in further studies on EHR-SaaS, I would recommend analysis of both qualities important to win new customers and qualities important to retain (happily) existing customers.
 For the sake of this discussion, it is important to acknowledge that the focus of the authors of \cite{saasqual} is too much on customer retention and not enough on customer acquisition for the EHR-SaaS purpose due to their assumption about the ease of switching vendors.
@@ -442,24 +442,27 @@ As in 'Conversion Rate', I would propose the use of a more structured program to
 
 An EHR-SaaS system is a very unique web application and SaaS product.
 As shown above, the standard website metrics are not going to fit this product or provide a good way to measure an EHR-SaaS product.
-Next, I would be forced to ask what the developers and/or users of an EHR-SaaS system might be trying to learn from these metrics.
+%Next, I would be forced to ask what the developers and/or users of an EHR-SaaS system might be trying to learn from these metrics.
 
 \subsection{Proposing A Structured Approach for Finding EHR-SaaS Metrics}
 \label{sec:EHR-SaaS-GQM-Intro}
 
 In the previous section, I showed that the typical "top website metrics" do not provide much relevant information for evaluating an EHR-SaaS web application.
+What metrics are meaningful for an EHR-SaaS product, then?
+After all, if a metric is not supporting a real business goal, then it is just a set of numbers.
+Worse, the tracking of a not well thought out metric may push the developers to focus on improving this metric and miss an opportunity to focus on improvements that could improve the business viability of the product.
+
+Readers with a foundational software metrics and measurement background should be familiar with Victor Basili and Dieter Rombach's seminal work establishing a goal-driven measurement process called the Goal-Question-Metric (GQM) methodology \cite{TODO}.
+This methodology establishes a rigorous process for establishing first what business goals an organization wants to achieve and then determining the specific metrics needed to evaluate progress towards that goal.
 The owners of an EHR-SaaS product need to start with the high level question "What are our business goals?" related to the EHR-SaaS product.
-Necessarily, this question is best asked at the executive level of the organization and not at the developer level.
+Necessarily, this question should be asked at an executive level of the organization and not at the developer level.
 If you start with the developers, you are likely to get a bunch of low level answers like "Improve page load times", "Improve usability", or "Reduce complexity in the code base".
-While these are all valid goals, they may or may not be in support of the most important business objectives.
+While these are all noble goals from a developer's point of view, they may or may not be in support of the most important business objectives.
 Since very few organizations have infinite resource, the organization will need to determine the most important business objectives, determine the measurement criteria from there, and then prioritize those specific metrics.
 
-Readers from a software background may be familiar with Victor Basili and Dieter Rombach's seminal work establishing a goal-driven measurement process called the Goal-Question-Metric (GQM) methodology \cite{TODO}.
-This methodology establishes a rigorous process for establishing first what business goals an organization wants to achieve and then determining the specific metrics needed to evaluate progress towards that goal.
-After all, if a metric is not supporting a real business goal, then it is just a set of numbers.
-Worse, the tracking of a not well though out metric may push the developers to focus on improving this metric and miss an opportunity to focus on improvements that could improve the business viability of the product.
 
-\subsection{Intordoucing the GQ(I)M Methodology for an EHR-SaaS Product}
+
+\subsection{Advocating the GQ(I)M Methodology for an EHR-SaaS Product}
 \label{sec:EHR-SaaS-GQM-Methodology}
 
 The Goal-Question-(Indicator)-Metric ( GQ(I)M ) is an extension of Basili and Rombach's GQM methodology outlined by Park, Goethert, and Florac of the Software Engineering Institute in 1996.
@@ -471,12 +474,48 @@ The GQ(I)M process is based on these three principles \cite{sei-gqim}:
 	\item GQ(I)M translates informal goals into executable measurement structures.
 \end{itemize}
 
+The process consists of these ten steps:
+\begin{enumerate}
+	\item Identifying Business Goals
+	\item Identifying What You Want to Know or Learn 
+	\item Identifying Subgoals
+	\item Identifying Entities and Attributes
+	\item Formalizing Measurement Goals
+	\item Identifying Quantifiable Questions and Indicators 
+	\item Identifying Data Elements
+	\item Defining Measures
+	\item Analysis, Diagnosis, Action
+	\item Preparing Your Measurement Plan
+\end{enumerate}
+
+In order to complete the ten steps of the GQ(I)M process, you will need a thorough understanding of the product and processes around creating that product.
+Therefore, these steps are necessarily undertaken by the organization that is creating the software product under measure.
+It is definitely a lot of work to follow these ten steps.
+However, if you do all the necessary work and documentation required by these steps, you will have produced an invaluable measurement plan for your product that will allow you to measure your progress towards completing identified business goals.
+Furthermore, you will have created some good documentation and research into your existing product and processes.
+In my own work with these steps, I found step 6 (Identifying Quantifiable Questions and Indicators) to be particularly valuable for making sure that the metrics chosen can be used to meaningfully represent progress towards a goal.
+I highly encourage the reader to review the work at \cite{sei-gqim} and other resources regarding the GQM and GQ(I)M methodology.
+
+In this paper, I will focus on the first step "Identify Business Goals" since it is the only one that can be discussed at all without the context of a specific product.
+
+The first goal for an EHR-SaaS product is going to be whether or not it can perform the required functionality.
+For this question, I will rely on the certification requirements set by the ONC and assume that from here on out we are discussing certified EHR products whose basic functionality is assured.
+
+The next goal for an EHR-SaaS product should be centered around the Service Level Agreement (SLA) that you either have with customers or desire to have with customers.
+These SLA's should include very specific terms around service uptime and/or downtime, customer support availability hours and response times, page load times, and so on.
+An good example of specific SLA language is: ""Downtime Period" means, for the EHR, a period of ten consecutive minutes of Downtime. Intermittent Downtime for a period of less than ten minutes will not be counted towards any Downtime Periods." \cite{emr-sla-example}. 
+From the SLA for an EHR-SaaS product, you can clearly create some specific measurements.
+An organization must also necessarily focus on meeting the SLA requirements in order to remain in good standing with customers.
+
+Once basic functionality is verified and SLA specifics are met, the product owner (and product buyers) need to determine what business level objectives are most important.
+I suggest that the product owner focus next on the non-functional attributes (service qualities) that are most likely to be important.
+As discussed in section \ref{sec:Critical-EHR-Ilities}, more research is needed to determine which service qualities are most important to EHR-SaaS customers.
+However, for now, a working starting point for the next business goal can be selected from this list in section \ref{sec:Critical-EHR-Ilities}: Rapport, Responsiveness, Customization, Reliability, Stability, Flexibility, Interoperability.
+For example, a vendor may decide to focus first on Responsiveness, so executive staff could choose a business goal like "Improve resolution time for critical customer issues".
+From this business goal, the vendor can work through the process identified in \cite{sei-gqim} by analyzing the organization, processes and product attributes to create a measurement plan that can be used to measure progress towards this goal.
 
 
-%The first goal for an EHR-SaaS product is going to be whether or not it can perform the required functionality.
-%For this question, I will rely on the certification requirements set by the ONC and assume that from here on out we are discussing certified EHR %products whose basic functionality is assured.
-%Once basic functionality is verified, the product owner (and product buyers) need to determine what business level objectives are most important.
-
+% emr-sla-example: http://emr-consults.com/sla.html
 
 \section{Conclusions and Future Work}
 
