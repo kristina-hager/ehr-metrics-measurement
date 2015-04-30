@@ -18,22 +18,35 @@
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
 \begin{document}
 
-%\title{My EHR Paper title}
+\title{Electronic Health Record Systems as a Service: Overview and Measurement}
 
-%\author{Kristina Hager\\
-%Software Metrics and Measurement EE382V\\
-%University of Texas at Austin\\
-%April 30, 2015\\
-%}
+\author{Kristina Hager\\
+Software Metrics and Measurement EE382V\\
+University of Texas at Austin\\
+April 30, 2015\\
+}
 
-%\maketitle
-%\thispagestyle{empty}
+%\clearpage
 
-%\begin{abstract}
-%	This is an abstract!
-%\end{abstract}
+\maketitle
+\thispagestyle{empty}
 
-% \tableofcontents
+\begin{abstract}
+
+When I started research for this paper, my initial goal was to present the reader with an overview of specific and technical measurements and metrics relevant to an electronic health record (EHR) system delivered in the software as a service (SaaS) form.
+However, as I started researching, I realized that the EHR product is a very unique product versus others with respect to the goals of the system, the customers and users of the system, the regulatory environment, and more.
+Therefore, it does not make sense to jump directly to specific technical measurements.
+First, too much detail about the goals, non-functional requirements and unique characteristics of an EHR product would be missing for the reader.
+Second, a measurement program really needs to start with the high level, aka business level, goals of the product.
+In this paper, I will start with an overview of electronic health record (EHR) systems with a focus on the goals and non-functional requirements of such systems.
+Next, I will introduce the software as a service concept along with recent research on top non-functional requirements for generic SaaS products.
+Finally, I will discuss the non-functional requirements likely to be critical for an EHR-SaaS system and initiate the reader with the first few steps of creating a measurement program from business goals for an EHR-SaaS system.
+I expect that the primary reader of this paper will be one with a software background with or without deep familiarity with EHR and SaaS products.
+This paper may also be interesting to readers from a health IT or medical practice administration background as well.
+
+\end{abstract}
+
+%\tableofcontents
 
 \section{Introduction}
 \label{sec:Introduction}
@@ -66,27 +79,27 @@ A cloud-based EHR service is very alluring to providers due to reduced infrastru
 I will cover in this paper the quality factors that are likely to be important to purchasers of a cloud-based EHR system.
 
 This paper is written primarily for a reader from the software industry with an interest in EHR, and it may also be of use to a medical provider administrator in charge of selecting such a system.
-This paper can be divided into two major sections:
+This paper can be divided into three major sections:
 \begin{itemize}
-	\item An overview of the high level goals of an EHR system, Meaningful Use, and what sorts of metrics the medical provider must produce, using an EHR system, to attest to Meaningful Use.
-	\item An overview of SaaS, considerations specific to EHR-SaaS and suggest metrics an EHR-SaaS software vendor may use to differentiate its product.
+	\item In section \ref{sec:Intro_EHR}, I will give an overview of the high level goals of an EHR system and Meaningful Use followed by examples of metrics the medical provider must produce, using an EHR system, to attest to Meaningful Use.
+	\item In section \ref{sec:Intro_SaaS}, I will start with an overview of SaaS and describe the advantages and challenges around delivering an EHR system as a service.
+	\item In section \ref{sec:Critical-EhrSaaS-Ilities}, I will present recent research on top non-functional requirements for a generic SaaS product and offer my thoughts, based on that research, on non-functional requirements for an EHR-SaaS product. Next, I will discuss a structured approach to create a measurement program for an EHR-SaaS product.
 \end{itemize}
+%, and recent research on top non-functional requirements for a generic SaaS product
 
-In section \ref{sec:Intro_EHR}, I will introduce the EHR system.
+%In section \ref{sec:Intro_EHR}, I will introduce the EHR system.
 
-In section \ref{sec:Goals of an EHR}, I will present a high level overview of the goals and non-functional requirements of such a system.
+%In section \ref{sec:Goals of an EHR}, I will present a high level overview of the goals and non-functional requirements of such a system.
 
-In section \ref{sec:Define Meaningful Use}, I will introduce the concept of Meaningful Use for the reader.
+%In section \ref{sec:Define Meaningful Use}, I will introduce the concept of Meaningful Use for the reader.
 
-In section \ref{sec:Meaningful Use Metrics}, I will provide to the reader details and some examples of the metrics a provider must produce in order to attest to Meaningful Use and earn incentives.
+%In section \ref{sec:Meaningful Use Metrics}, I will provide to the reader details and some examples of the metrics a provider must produce in order to attest to Meaningful Use and earn incentives.
 
-In section \ref{sec:CQM}, I will provide an overview of the Clinical Quality Measures (CQM) that a provider must report to maintain Meaningful Use and earn incentives.
+%In section \ref{sec:CQM}, I will provide an overview of the Clinical Quality Measures (CQM) that a provider must report to maintain Meaningful Use and earn incentives.
 
-In section \ref{sec:Intro_SaaS}, I will introduce the concept of Software-as-a-Service (SaaS) and in describe the advantages and challenges of a SaaS solution for the EHR product in sections \ref{sec:SaaS Adantages} and \ref{sec:SaaS Challenges}.
+%In section \ref{sec:Intro_SaaS}, I will introduce the concept of Software-as-a-Service (SaaS) and in describe the advantages and challenges of a SaaS solution for the EHR product in sections \ref{sec:SaaS Adantages} and \ref{sec:SaaS Challenges}.
  
-In section \ref{sec:Critical-EhrSaaS-Ilities}, I will offer my thoughts how the providers of an EHR-SaaS system can differentiate their product in the marketplace by presenting the critical non-functional requirements of a generic SaaS product and my thoughts on the critical non-functional requirements for an EHR-SaaS product in sections \ref{sec:Critical-SaaS-Ilities} and \ref{sec:Critical-EHR-Ilities}. 
-%I will first cover existing research by Benlian, Koufaris, and Hess (2011, \cite{saasqual}) on the critical non-functional requirements of a generic business-to-business SaaS product.
-%With Benlian, et al.'s work as a solid foundation, I will offer a critique of their conclusions from the perspective of an EHR-SaaS system and a modified list of quality factors I conjecture to be critical for this unique product.
+%In section \ref{sec:Critical-EhrSaaS-Ilities}, I will offer my thoughts how the providers of an EHR-SaaS system can differentiate their product in the marketplace by presenting the critical non-functional requirements of a generic SaaS product and my thoughts on the critical non-functional requirements for an EHR-SaaS product in sections \ref{sec:Critical-SaaS-Ilities} and \ref{sec:Critical-EHR-Ilities}. 
 
 \section{Introducing the EHR System}
 \label{sec:Intro_EHR}
@@ -196,8 +209,6 @@ Based on my review of the Stage 1 and 2 Meaningful Use objectives, I would categ
 \subsection{Reporting Clinical Quality Measures}
 \label{sec:CQM}
 
-\input{tables/cqm.tex}
-
 Providers participating in the Meaningful Use incentive program must report annually on at least a subset of Clinical Quality Measures as defined by CMS.
 These measures cover these priorities for health care quality improvement as established by HHS \cite{cqm-intro}:
 \begin{enumerate}
@@ -210,6 +221,8 @@ These measures cover these priorities for health care quality improvement as est
 \end{enumerate}
 
 Based on my review of the 2014 clinical quality measures for outpatient care as in \cite{cqm-pdf}, the measures typically affirm that the medical practice is providing what should be standard maintenance care for chronic conditions with a goal of improving health and reducing long term costs. I show some examples in table \ref{table:cqm}.
+
+\input{tables/cqm.tex}
 
 \section{Introducing Software as a Service (SaaS)}
 \label{sec:Intro_SaaS}
@@ -395,7 +408,7 @@ Here is my nonprioritized list of quality factors I conjecture are most critical
 
 I would encourage a similar study as rigorous as Benlian, et al.'s take place on important quality factors for the adoption and continuance of SaaS in order to validate this list, introduce or remove factors, and prioritize the importance of quality factors.
 
-\section{Fishing for Metrics for a SaaS-EHR System}
+\subsection{Fishing for Metrics for a SaaS-EHR System}
 \label{sec:EHR-SaaS-Metrics}
 
 An EHR-SaaS system is essentially a web application.
@@ -442,7 +455,7 @@ An EHR-SaaS system is a very unique web application and SaaS product.
 As shown above, the standard website metrics are not going to fit this product or provide a good way to measure an EHR-SaaS product.
 %Next, I would be forced to ask what the developers and/or users of an EHR-SaaS system might be trying to learn from these metrics.
 
-\subsection{Proposing A Structured Approach for Finding EHR-SaaS Metrics}
+\subsubsection{Proposing A Structured Approach for Finding EHR-SaaS Metrics}
 \label{sec:EHR-SaaS-GQM-Intro}
 
 In the previous section, I showed that the typical "top website metrics" do not provide much relevant information for evaluating an EHR-SaaS web application.
@@ -450,7 +463,7 @@ What metrics are meaningful for an EHR-SaaS product, then?
 After all, if a metric is not supporting a real business goal, then it is just a set of numbers.
 Worse, the tracking of a not well thought out metric may push the developers to focus on improving this metric and miss an opportunity to focus on improvements that could improve the business viability of the product.
 
-Readers with a foundational software metrics and measurement background should be familiar with Victor Basili and Dieter Rombach's seminal work establishing a goal-driven measurement process called the Goal-Question-Metric (GQM) methodology \cite{TODO}.
+Readers with a foundational software metrics and measurement background should be familiar with Victor Basili and Dieter Rombach's seminal work establishing a goal-driven measurement process called the Goal-Question-Metric (GQM) methodology \cite{orig-gqm}.
 This methodology establishes a rigorous process for establishing first what business goals an organization wants to achieve and then determining the specific metrics needed to evaluate progress towards that goal.
 The owners of an EHR-SaaS product need to start with the high level question "What are our business goals?" related to the EHR-SaaS product.
 Necessarily, this question should be asked at an executive level of the organization and not at the developer level.
@@ -460,7 +473,7 @@ Since very few organizations have infinite resource, the organization will need 
 
 
 
-\subsection{Advocating the GQ(I)M Methodology for an EHR-SaaS Product}
+\subsubsection{Advocating the GQ(I)M Methodology for an EHR-SaaS Product}
 \label{sec:EHR-SaaS-GQM-Methodology}
 
 The Goal-Question-(Indicator)-Metric ( GQ(I)M ) is an extension of Basili and Rombach's GQM methodology outlined by Park, Goethert, and Florac of the Software Engineering Institute in 1996.
@@ -514,7 +527,15 @@ From this business goal, the vendor can work through the process identified in \
 
 \section{Conclusions and Future Work}
 
-Conclusions go here. 
+The need for and usage of EHR systems in medical practices has been growing significantly and will continue to grow in upcoming years.
+Therefore, software companies will desire to enter or grow in this market.
+As discussed earlier in the paper, the SaaS model provides some notable advantages for delivery of an EHR system.
+In order to continually improve their market position, these companies will need to create and institute measurement programs around their products.
+Therefore, companies will need to determine which non-functional attributes their clients consider most important in order to focus their measurement program on the right business goals.
+There has been good, recent research into non-functional attributes important for generic, business to business SaaS.
+However, the EHR-SaaS product is rather unique among SaaS products.
+I have offered my own thoughts on what I expect to be most important non-functional attributes for an EHR-SaaS product and offered the reader some guidance towards creating a measurement program for their own products.
+I would encourage more formal research in this area.
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
